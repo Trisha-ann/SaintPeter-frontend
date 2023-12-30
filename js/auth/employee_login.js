@@ -1,4 +1,4 @@
-import { proxyURL, backendURL, showAlert, setRouter } from "../utils/utils.js";
+import { backendURL, showAlert, setRouter } from "../utils/utils.js";
 
 setRouter();
 
@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", function () {
     var password = passwordInput.value;
 
     try {
-      const response = await fetch(proxyURL + backendURL + "/login", {
+      const response = await fetch(backendURL + "/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

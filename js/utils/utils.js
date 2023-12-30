@@ -2,7 +2,6 @@ import { setRouter } from "../router/router.js";
 
 setRouter();
 
-const proxyURL = "https://cors-anywhere.herokuapp.com/";
 const backendURL = "https://1c27-103-123-40-10.ngrok-free.app/api";
 
 function showAlert(type, message) {
@@ -14,4 +13,4 @@ function showAlert(type, message) {
   }
 }
 
-export { proxyURL, backendURL, showAlert, setRouter };
+export { backendURL, showAlert, setRouter };
