@@ -4,13 +4,14 @@ document.addEventListener("DOMContentLoaded", function () {
   
     if (!employeeToken) {
       // Redirect to the login page or take appropriate action
-      window.location.href = "/index.html";
+      window.location.href = "/";
     } else {
       // The user has a valid token, proceed with the logout functionality
       var logoutButton = document.getElementById("employee_logout");
   
       if (logoutButton) {
         logoutButton.addEventListener("click", function () {
+            console.log("button click");
 
           const backendURL = "http://saintpeter-backend.test/api";
   
@@ -35,7 +36,7 @@ document.addEventListener("DOMContentLoaded", function () {
               localStorage.removeItem("employee_token");
               localStorage.removeItem("first_name");
               localStorage.removeItem("last_name");
-              window.location.href = "/index.html";
+              window.location.href = "/";
             })
             .catch(function (error) {
               // Handle errors during logout

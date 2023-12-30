@@ -3,7 +3,7 @@ function setRouter() {
       case "/":
       case "/index.html":
         if (localStorage.getItem("employee_token") !== null) {
-          window.location.pathname = "/dashboard.html";
+          window.location.pathname = "/index.html";
         }
         break;
   

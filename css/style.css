@@ -7,7 +7,7 @@
 
 /*set color of the text*/
 .text-color{
-    color: #00A74D;
+    color: #198754;
 }
 
 /*change the border color of the input field in login form*/
@@ -16,13 +16,13 @@
     border-left: none;
     border-right: none;
     border-radius: 0;
-    border-color: #00A74D;
+    border-color: #198754;
 }
 /*remove the focus from the bootstrap*/
 .border-input:focus {
     outline: none;
     box-shadow: none;
-    border-color: #00A74D;
+    border-color: #198754;
 }
 /*make the unlock icon into display none*/
 i.fa-unlock{
