@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function () {
     return;
   }
 
-  loginForm.addEventListener("submit", function (event) {
+  loginForm.addEventListener("submit", async function (event) {
     event.preventDefault();
 
     var employeeIdInput = loginForm.querySelector('input[type="text"]');
@@ -24,28 +24,20 @@ document.addEventListener("DOMContentLoaded", function () {
     var employee_id = employeeIdInput.value;
     var password = passwordInput.value;
 
-    fetch(proxyURL + backendURL + "/login", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        employee_id: employee_id,
-        password: password,
-      }),
-    })
-      .then(function (response) {
-        if (response.ok) {
-          return response.json();
-        } else if (response.status === 404) {
-            // Employee ID not found
-            showAlert("danger", "Employee ID not found");
-            throw new Error("Employee ID not found");
-          } else {
-            throw new Error("Error: " + response.statusText);
-          }
-      })
-      .then(function (responseJson) {
+    try {
+      const response = await fetch(proxyURL + backendURL + "/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          employee_id: employee_id,
+          password: password,
+        }),
+      });
+
+      if (response.ok) {
+        const responseJson = await response.json();
         if (responseJson.employee) {
           showAlert("success", "Login successful!");
           localStorage.setItem("employee_token", responseJson.employee_token);
@@ -59,13 +51,14 @@ document.addEventListener("DOMContentLoaded", function () {
           showAlert("danger", "You are not an employee");
           loginForm.reset();
         }
-      })
-      .catch(function (error) {
-        if (error.message !== "Employee ID not found") {
-          // Show error alert only if it's not due to employee ID not found
-          console.error("Error:", error);
-          showAlert("danger", "Incorrect Credentials!");
-        }
-      });
+      } else if (response.status === 404) {
+        showAlert("danger", "Employee ID not found");
+      } else {
+        throw new Error("Error: " + response.statusText);
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      showAlert("danger", "Incorrect Credentials!");
+    }
   });
 });
