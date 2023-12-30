@@ -37,6 +37,7 @@ document.addEventListener("DOMContentLoaded", function () {
               localStorage.removeItem("employee_token");
               localStorage.removeItem("first_name");
               localStorage.removeItem("last_name");
+              localStorage.removeItem("sb|sidebar-toggle");
               window.location.href = "/";
             })
             .catch(function (error) {

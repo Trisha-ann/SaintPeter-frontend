@@ -6,10 +6,13 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Dashboard - SB Admin</title>
+        <title>Dashboard - Employee</title>
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
         <link href="css/styles.css" rel="stylesheet" />
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+
+        <!--fontawesome link-->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     </head>
     <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-success">
@@ -103,7 +106,7 @@
                     </div>
                     <div class="sb-sidenav-footer text-white">
                         <div class="small">Logged in as:</div>
-                        Start Bootstrap
+                        <div class="small" id="employee_name"></div>
                     </div>
                 </nav>
             </div>
@@ -113,42 +116,20 @@
                         <h1 class="mt-4">Dashboard</h1>
                         <div class="row">
                             <div class="col-xl-3 col-md-6">
-                                <div class="card bg-primary text-white mb-4">
-                                    <div class="card-body">Primary Card</div>
-                                    <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="#">View Details</a>
-                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-3 col-md-6">
-                                <div class="card bg-warning text-white mb-4">
-                                    <div class="card-body">Warning Card</div>
-                                    <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="#">View Details</a>
-                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-3 col-md-6">
                                 <div class="card bg-success text-white mb-4">
-                                    <div class="card-body">Success Card</div>
+                                    <div class="card-body">
+                                        <p class="fw-bold text-center">Total Customers</p>
+                                        <div class="d-flex align-items-center gap-4">
+                                            <i class="fa-solid fa-users icon-size"></i>
+                                            <h1>100</h1>
+                                        </div>
+                                    </div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
                                         <a class="small text-white stretched-link" href="#">View Details</a>
                                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-xl-3 col-md-6">
-                                <div class="card bg-danger text-white mb-4">
-                                    <div class="card-body">Danger Card</div>
-                                    <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="#">View Details</a>
-                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                         <div class="row">
                             <div class="col-xl-6">
                                 <div class="card mb-4">
@@ -683,5 +664,22 @@
 
         <!--original script for logout-->
         <script type="text/javascript" src="js/auth/employee_logout.js"></script>
+
+        <!--script to display the name of the employee-->
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                // Retrieve data from localStorage
+                var firstName = localStorage.getItem("first_name");
+                var lastName = localStorage.getItem("last_name");
+    
+                // Display data in the HTML
+                var userDataDiv = document.getElementById("employee_name");
+                if (userDataDiv) {
+                    userDataDiv.innerHTML = `
+                        ${firstName} ${lastName}
+                    `;
+                }
+            });
+        </script>
     </body>
 </html>
