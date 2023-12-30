@@ -12,9 +12,10 @@ document.addEventListener("DOMContentLoaded", function () {
       if (logoutButton) {
         logoutButton.addEventListener("click", function () {
           // Perform the logout API request
+          const proxyURL = "https://cors-anywhere.herokuapp.com/";
           const backendURL = "https://1c27-103-123-40-10.ngrok-free.app/api";
   
-          fetch(backendURL + "/logout", {
+          fetch(proxyURL + backendURL + "/logout", {
             method: "GET",
             headers: {
               "Content-Type": "application/json",
