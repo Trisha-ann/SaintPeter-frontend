@@ -13,8 +13,8 @@ document.addEventListener("DOMContentLoaded", function () {
         logoutButton.addEventListener("click", function () {
             console.log("button click");
 
-          const backendURL = "http://saintpeter-backend.test/api";
-          //const backendURL = "https://69f4-103-123-40-11.ngrok-free.app/saintpeter-backend/public/api";
+          //const backendURL = "http://saintpeter-backend.test/api";
+          const backendURL = "https://f4cd-175-176-84-51.ngrok-free.app/saintpeter-backend/public/api";
   
           fetch(backendURL + "/logout", {
             method: "GET",
