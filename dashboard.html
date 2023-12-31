@@ -18,9 +18,6 @@
             <a class="navbar-brand ps-3" href="dashboard.html">Saint Peter Life Plan</a>
             <!-- Sidebar Toggle-->
             <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
-            <!-- Navbar Search-->
-            
-            <!-- Navbar-->
             <ul class="navbar-nav ms-auto me-0 me-md-3 my-2 my-md-0">
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
@@ -105,15 +102,7 @@
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container px-4">
-                        <div class="d-flex justify-content-center align-items-center">
-                            <h1 class="mt-4 d-inline">Dashboard</h1>
-                        <form class="mt-4 form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
-                            <div class="input-group">
-                                <input class="form-control" type="text" placeholder="Search Customer..." aria-label="Search for..." aria-describedby="btnNavbarSearch" />
-                                <button class="btn btn-success" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button>
-                            </div>
-                        </form>
-                        </div>
+                            <h1 class="mt-4">Dashboard</h1>
                         <div class="row">
                                 <div class="col-xl-3 col-md-6">
                                     <a class="text-decoration-none" href="#">
@@ -142,28 +131,27 @@
                             </a>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-xl-6">
-                                <div class="card mb-4">
-                                    <div class="card-header">
-                                        <i class="fas fa-chart-area me-1"></i>
-                                        Area Chart Example
-                                    </div>
-                                    <div class="card-body"><canvas id="myAreaChart" width="100%" height="40"></canvas></div>
-                                </div>
+                        <div class="card mb-4">
+                            <div class="card-header bg-success text-white">
+                                <i class="fas fa-users me-1"></i>
+                                All Customers
                             </div>
-                            <div class="col-xl-6">
-                                <div class="card mb-4">
-                                    <div class="card-header">
-                                        <i class="fas fa-chart-bar me-1"></i>
-                                        Bar Chart Example
+                            <div class="card-body">
+                                <div class="d-flex justify-content-end gap-1">
+                                    <form class="mt-4 form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
+                                        <div class="input-group">
+                                            <input class="form-control" type="text" placeholder="Search Customer..." aria-label="Search for..." aria-describedby="btnNavbarSearch" />
+                                            <button class="btn btn-success" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button>
+                                        </div>
+                                    </form>
+                                    <div class="bg-success text-white rounded mt-4 me-0 me-md-3 my-2 my-md-0 align-items-center justify-content-center" type="button">
+                                        <i class="fa fa-plus p-2"></i>
                                     </div>
-                                    <div class="card-body"><canvas id="myBarChart" width="100%" height="40"></canvas></div>
                                 </div>
                             </div>
                         </div>
                         <div class="card mb-4">
-                            <div class="card-header">
+                            <div class="card-header bg-success text-white">
                                 <i class="fas fa-table me-1"></i>
                                 DataTable Example
                             </div>
@@ -654,13 +642,8 @@
                 </main>
                 <footer class="py-4 bg-light mt-auto">
                     <div class="container-fluid px-4">
-                        <div class="d-flex align-items-center justify-content-between small">
-                            <div class="text-muted">Copyright &copy; Your Website 2023</div>
-                            <div>
-                                <a href="#">Privacy Policy</a>
-                                &middot;
-                                <a href="#">Terms &amp; Conditions</a>
-                            </div>
+                        <div class="d-flex align-items-center justify-content-center small">
+                            <div class="text-muted">Copyright &copy; Saint Peter Life Plan 2023</div>
                         </div>
                     </div>
                 </footer>
