@@ -99,7 +99,7 @@
             <div
               id="passwordSuccess"
               class="text-success d-none mb-2 text-center p-2 rounded"
-              style="background-color: #d1f7c4;"
+              style="background-color: #d1f7c4"
             >
               Password Successfully Changed
             </div>
@@ -383,48 +383,7 @@
                       <th>Delete</th>
                     </tr>
                   </thead>
-                  <tbody>
-                    <tr>
-                      <td>111</td>
-                      <td>Cabodbod</td>
-                      <td>Cyrel</td>
-                      <td>Cabadbaran</td>
-                      <td>18</td>
-                      <td>Male</td>
-                      <td>Jan-19-2003</td>
-                      <td>Jan-20-2003</td>
-                      <td>
-                        <button type="button" class="btn btn-primary">
-                          Update
-                        </button>
-                      </td>
-                      <td>
-                        <button type="button" class="btn btn-danger">
-                          Delete
-                        </button>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>112</td>
-                      <td>Pelonis</td>
-                      <td>Trisha</td>
-                      <td>Butuan</td>
-                      <td>53</td>
-                      <td>Female</td>
-                      <td>Aug-3-2002</td>
-                      <td>null</td>
-                      <td>
-                        <button type="button" class="btn btn-primary">
-                          Update
-                        </button>
-                      </td>
-                      <td>
-                        <button type="button" class="btn btn-danger">
-                          Delete
-                        </button>
-                      </td>
-                    </tr>
-                  </tbody>
+                  <tbody></tbody>
                 </table>
               </div>
             </div>
@@ -519,6 +478,7 @@
         });
     </script>
 
+    <!--script for updating the password-->
     <script>
       document
         .getElementById("proceedButton") // Updated to match the button ID
@@ -548,7 +508,7 @@
             method: "PUT",
             headers: {
               "Content-Type": "application/json",
-              "Authorization": `Bearer ${token}`,
+              Authorization: `Bearer ${token}`,
             },
             body: JSON.stringify({
               password: confirmPassword,
@@ -575,6 +535,64 @@
               // Display an error message to the user or handle it accordingly
             });
         }
+      }
+    </script>
+
+    <!--script for fetching data table-->
+    <script>
+      document.addEventListener("DOMContentLoaded", fetchDataTable);
+
+      function fetchDataTable() {
+        const backendURL = "http://saintpeter-backend.test/api";
+        const token = localStorage.getItem("employee_token");
+
+        fetch(`${backendURL}/customers`, {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+        })
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            return response.json();
+          })
+          .then((data) => {
+            console.log("Data received", data);
+            displayData(data);
+          })
+          .catch((error) => {
+            // Handle error
+            console.error("Error fetching data:", error);
+          });
+      }
+
+      function displayData(data) {
+        const tbody = document.querySelector("#datatablesSimple tbody");
+
+        data.forEach((item) => {
+          const row = table.insertRow();
+          table.innerHTML = ''; // Clear previous content
+
+          // Assuming data structure, update property names accordingly
+          const properties = [
+            "customer_id",
+            "last_name",
+            "first_name",
+            "address",
+            "age",
+            "gender",
+            "birth_date",
+            "death_date",
+          ];
+
+          properties.forEach((property) => {
+            const cell = row.insertCell();
+            cell.textContent = item[property];
+          });
+        });
       }
     </script>
   </body>
