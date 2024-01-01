@@ -11,6 +11,9 @@ function showAlert(type, message) {
     alertDiv.classList.remove("d-none");
     alertDiv.textContent = message;
 
+    setTimeout(() => {
+      alertDiv.classList.add("d-none");
+    }, 1000);
   }
 }
 

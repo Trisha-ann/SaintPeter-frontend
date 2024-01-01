@@ -90,6 +90,13 @@
     scroll-behavior: smooth;
   }
 }
+html {
+  scroll-behavior: smooth;
+}
+
+html::-webkit-scrollbar {
+  display: none;
+}
 
 body {
   margin: 0;
@@ -11251,4 +11258,8 @@ body {
   outline: none;
   box-shadow: none;
   border-color: #e7eaed;
+}
+
+.modal-header{
+  background-color: #198754 !important;
 }

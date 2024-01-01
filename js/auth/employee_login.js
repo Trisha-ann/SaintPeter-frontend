@@ -49,6 +49,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (responseJson.employee) {
           showAlert("success", "Login successful!");
           localStorage.setItem("employee_token", responseJson.employee_token);
+          localStorage.setItem("employee_id", responseJson.employee.employee_id);
           localStorage.setItem("first_name", responseJson.employee.first_name);
           localStorage.setItem("last_name", responseJson.employee.last_name);
           loginForm.reset();

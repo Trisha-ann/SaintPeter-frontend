@@ -1,244 +1,581 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
-        <title>Dashboard - Employee</title>
-        <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
-        <link href="css/styles.css" rel="stylesheet" />
-        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
-
-    </head>
-    <body class="sb-nav-fixed">
-        <nav class="sb-topnav navbar navbar-expand navbar-dark bg-success">
-            <!-- Navbar Brand-->
-            <a class="navbar-brand ps-3" href="dashboard.html">Saint Peter Life Plan</a>
-            <!-- Sidebar Toggle-->
-            <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
-            <ul class="navbar-nav ms-auto me-0 me-md-3 my-2 my-md-0">
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
-                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#!">Change Password</a></li>
-                        <li><hr class="dropdown-divider" /></li>
-                        <button type="button" class="dropdown-item" id="employee_logout">Logout</button>
-                    </ul>
-                </li>
-            </ul>
-        </nav>
-        <div id="layoutSidenav">
-            <div id="layoutSidenav_nav">
-                <nav class="sb-sidenav accordion sb-sidenav-success" id="sidenavAccordion">
-                    <div class="sb-sidenav-menu">
-                        <div class="nav">
-                            <div class="sb-sidenav-menu-heading">Core</div>
-                            <a class="nav-link" href="dashboard.html">
-                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                                Dashboard
-                            </a>
-                            <div class="sb-sidenav-menu-heading">Interface</div>
-                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
-                                <div class="sb-nav-link-icon"><i class="fas fa-user"></i></div>
-                                Customers
-                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                            </a>
-                            <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
-                                <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="layout-static.html">Static Navigation</a>
-                                    <a class="nav-link" href="layout-sidenav-light.html">Light Sidenav</a>
-                                </nav>
-                            </div>
-                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
-                                <div class="sb-nav-link-icon"><i class="fas fa-book"></i></div>
-                                Payment Records
-                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                            </a>
-                            <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
-                                <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
-                                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseAuth" aria-expanded="false" aria-controls="pagesCollapseAuth">
-                                        Authentication
-                                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                                    </a>
-                                    <div class="collapse" id="pagesCollapseAuth" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
-                                        <nav class="sb-sidenav-menu-nested nav">
-                                            <a class="nav-link" href="login.html">Login</a>
-                                            <a class="nav-link" href="register.html">Register</a>
-                                            <a class="nav-link" href="password.html">Forgot Password</a>
-                                        </nav>
-                                    </div>
-                                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseError" aria-expanded="false" aria-controls="pagesCollapseError">
-                                        Error
-                                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                                    </a>
-                                    <div class="collapse" id="pagesCollapseError" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
-                                        <nav class="sb-sidenav-menu-nested nav">
-                                            <a class="nav-link" href="401.html">401 Page</a>
-                                            <a class="nav-link" href="404.html">404 Page</a>
-                                            <a class="nav-link" href="500.html">500 Page</a>
-                                        </nav>
-                                    </div>
-                                </nav>
-                            </div>
-                            <div class="sb-sidenav-menu-heading">Addons</div>
-                            <a class="nav-link" href="charts.html">
-                                <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
-                                Charts
-                            </a>
-                            <a class="nav-link" href="tables.html">
-                                <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
-                                Tables
-                            </a>
-                        </div>
-                    </div>
-                    <div class="sb-sidenav-footer text-white">
-                        <div class="small">Logged in as:</div>
-                        <div class="small" id="employee_name"></div>
-                    </div>
-                </nav>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Dashboard - Employee</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css"
+      rel="stylesheet"
+    />
+    <link href="css/styles.css" rel="stylesheet" />
+    <script
+      src="https://use.fontawesome.com/releases/v6.3.0/js/all.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body class="sb-nav-fixed">
+    <nav class="sb-topnav navbar navbar-expand navbar-dark bg-success">
+      <!-- Navbar Brand-->
+      <a class="navbar-brand ps-3" href="dashboard.html"
+        >Saint Peter Life Plan</a
+      >
+      <!-- Sidebar Toggle-->
+      <button
+        class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0"
+        id="sidebarToggle"
+        href="#!"
+      >
+        <i class="fas fa-bars"></i>
+      </button>
+      <ul class="navbar-nav ms-auto me-0 me-md-3 my-2 my-md-0">
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            id="navbarDropdown"
+            href="#"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+            ><i class="fas fa-user fa-fw"></i
+          ></a>
+          <ul
+            class="dropdown-menu dropdown-menu-end"
+            aria-labelledby="navbarDropdown"
+          >
+            <li>
+              <button
+                type="button"
+                class="dropdown-item"
+                data-bs-toggle="modal"
+                data-bs-target="#exampleModal"
+              >
+                Change Password
+              </button>
+            </li>
+            <li><hr class="dropdown-divider" /></li>
+            <button type="button" class="dropdown-item" id="employee_logout">
+              Logout
+            </button>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="exampleModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5 text-white" id="exampleModalLabel">
+              Change Password
+            </h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <div
+              id="passwordError"
+              class="text-danger d-none mb-2 text-center p-2 rounded"
+              style="background-color: #f8d7da"
+            >
+              Passwords do not match
             </div>
-            <div id="layoutSidenav_content">
-                <main>
-                    <div class="container px-4">
-                            <h1 class="mt-4">Dashboard</h1>
-
-                        <div class="row">
-                                <div class="col-xl-3 col-md-6">
-                                    <a class="text-decoration-none" href="#">
-                                    <div class="card bg-success text-white mb-4">
-                                        <div class="card-body">
-                                            <p class="fw-bold text-center">Total Customers</p>
-                                            <div class="d-flex align-items-center gap-4">
-                                                <i class="fa-solid fa-users icon-size"></i>
-                                                <h1 class="text-center fs-1">100</h1>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    </a>
-                                    </div>
-                            <div class="col-xl-3 col-md-6">
-                                <a class="text-decoration-none" href="#">
-                                <div class="card bg-danger text-white mb-4">
-                                    <div class="card-body">
-                                        <p class="fw-bold text-center">Number of Customers Died</p>
-                                        <div class="d-flex align-items-center gap-4">
-                                            <i class="fas fa-skull icon-size"></i>
-                                            <h1 class="text-center fs-1">100</h1>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                            </div>
-                        <div class="col-xl-3 col-md-6">
-                            <a class="text-decoration-none" href="#">
-                            <div class="card bg-success text-white mb-4">
-                                <div class="card-body">
-                                    <p class="fw-bold text-center">Add Customer</p>
-                                    <div class="d-flex justify-content-center align-items-center">
-                                    <i class="fas fa-plus icon-size"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                        </div>
-                    </div>
-                        <div class="card mb-4">
-                            <div class="card-header bg-success text-white">
-                                <i class="fas fa-users me-1"></i>
-                                All Customers
-                            </div>
-                            <div class="card-body">
-                                <table id="datatablesSimple">
-                                    <thead>
-                                        <tr>
-                                            <th>Customer ID</th>
-                                            <th>Last Name</th>
-                                            <th>First Name</th>
-                                            <th>Address</th>
-                                            <th>Age</th>
-                                            <th>Gender</th>
-                                            <th>Birth Date</th>
-                                            <th>Death Date</th>
-                                            <th>Update</th>
-                                            <th>Delete</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>111</td>
-                                            <td>Cabodbod</td>
-                                            <td>Cyrel</td>
-                                            <td>Cabadbaran</td>
-                                            <td>18</td>
-                                            <td>Male</td>
-                                            <td>Jan-19-2003</td>
-                                            <td>Jan-20-2003</td>
-                                            <td>
-                                                <button type="button" class="btn btn-primary">Update</button>
-                                            </td>
-                                            <td>
-                                                <button type="button" class="btn btn-danger">Delete</button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>112</td>
-                                            <td>Pelonis</td>
-                                            <td>Trisha</td>
-                                            <td>Butuan</td>
-                                            <td>53</td>
-                                            <td>Female</td>
-                                            <td>Aug-3-2002</td>
-                                            <td>null</td>
-                                            <td>
-                                                <button type="button" class="btn btn-primary">Update</button>
-                                            </td>
-                                            <td>
-                                                <button type="button" class="btn btn-danger">Delete</button>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </main>
-                <footer class="py-4 bg-light mt-auto">
-                    <div class="container-fluid px-4">
-                        <div class="d-flex align-items-center justify-content-center small">
-                            <div class="text-muted">Copyright &copy; IT-110 2024</div>
-                        </div>
-                    </div>
-                </footer>
+            <div
+              id="passwordSuccess"
+              class="text-success d-none mb-2 text-center p-2 rounded"
+              style="background-color: #d1f7c4;"
+            >
+              Password Successfully Changed
             </div>
+            <label class="form-label text-color" for="employeePassword"
+              >New Password</label
+            >
+            <div class="input-group mb-4">
+              <span
+                class="input-group-text border-input bg-transparent"
+                id="new_password-icon"
+              >
+                <button
+                  type="button"
+                  id="showpassword-icon"
+                  class="border-0 bg-transparent"
+                >
+                  <i class="fas fa-lock text-color" id="lock"></i>
+                  <i class="fas fa-unlock text-color d-none" id="unlock"></i>
+                </button>
+              </span>
+              <input
+                type="password"
+                id="employeePassword"
+                class="form-control form-control-lg border-input text-color"
+                aria-label="Employee Password"
+                aria-describedby="new_password-icon"
+              />
+            </div>
+
+            <label class="form-label text-color" for="employeeConfirmPassword"
+              >Confirm Password</label
+            >
+            <div class="input-group mb-4">
+              <span
+                class="input-group-text border-input bg-transparent"
+                id="confirm_password-icon"
+              >
+                <button
+                  type="button"
+                  id="confirmpassword-icon"
+                  class="border-0 bg-transparent"
+                >
+                  <i class="fas fa-lock text-color" id="confirm_lock"></i>
+                  <i
+                    class="fas fa-unlock text-color d-none"
+                    id="confirm_unlock"
+                  ></i>
+                </button>
+              </span>
+              <input
+                type="password"
+                id="employeeConfirmPassword"
+                class="form-control form-control-lg border-input text-color"
+                aria-label="Employee Password"
+                aria-describedby="confirm_password-icon"
+              />
+            </div>
+
+            <div class="d-flex justify-content-center align-items-center">
+              <button
+                class="btn btn-success btn-lg btn-block"
+                type="submit"
+                id="proceedButton"
+              >
+                Proceed
+              </button>
+            </div>
+          </div>
         </div>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-        <script src="js/scripts.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
-        <script src="assets/demo/chart-area-demo.js"></script>
-        <script src="assets/demo/chart-bar-demo.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js" crossorigin="anonymous"></script>
-        <script src="js/datatables-simple-demo.js"></script>
+      </div>
+    </div>
+    <div id="layoutSidenav">
+      <div id="layoutSidenav_nav">
+        <nav
+          class="sb-sidenav accordion sb-sidenav-success"
+          id="sidenavAccordion"
+        >
+          <div class="sb-sidenav-menu">
+            <div class="nav">
+              <div class="sb-sidenav-menu-heading">Core</div>
+              <a class="nav-link" href="dashboard.html">
+                <div class="sb-nav-link-icon">
+                  <i class="fas fa-tachometer-alt"></i>
+                </div>
+                Dashboard
+              </a>
+              <div class="sb-sidenav-menu-heading">Interface</div>
+              <a
+                class="nav-link collapsed"
+                href="#"
+                data-bs-toggle="collapse"
+                data-bs-target="#collapseLayouts"
+                aria-expanded="false"
+                aria-controls="collapseLayouts"
+              >
+                <div class="sb-nav-link-icon"><i class="fas fa-user"></i></div>
+                Customers
+                <div class="sb-sidenav-collapse-arrow">
+                  <i class="fas fa-angle-down"></i>
+                </div>
+              </a>
+              <div
+                class="collapse"
+                id="collapseLayouts"
+                aria-labelledby="headingOne"
+                data-bs-parent="#sidenavAccordion"
+              >
+                <nav class="sb-sidenav-menu-nested nav">
+                  <a class="nav-link" href="layout-static.html"
+                    >Static Navigation</a
+                  >
+                  <a class="nav-link" href="layout-sidenav-light.html"
+                    >Light Sidenav</a
+                  >
+                </nav>
+              </div>
+              <a
+                class="nav-link collapsed"
+                href="#"
+                data-bs-toggle="collapse"
+                data-bs-target="#collapsePages"
+                aria-expanded="false"
+                aria-controls="collapsePages"
+              >
+                <div class="sb-nav-link-icon"><i class="fas fa-book"></i></div>
+                Payment Records
+                <div class="sb-sidenav-collapse-arrow">
+                  <i class="fas fa-angle-down"></i>
+                </div>
+              </a>
+              <div
+                class="collapse"
+                id="collapsePages"
+                aria-labelledby="headingTwo"
+                data-bs-parent="#sidenavAccordion"
+              >
+                <nav
+                  class="sb-sidenav-menu-nested nav accordion"
+                  id="sidenavAccordionPages"
+                >
+                  <a
+                    class="nav-link collapsed"
+                    href="#"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#pagesCollapseAuth"
+                    aria-expanded="false"
+                    aria-controls="pagesCollapseAuth"
+                  >
+                    Authentication
+                    <div class="sb-sidenav-collapse-arrow">
+                      <i class="fas fa-angle-down"></i>
+                    </div>
+                  </a>
+                  <div
+                    class="collapse"
+                    id="pagesCollapseAuth"
+                    aria-labelledby="headingOne"
+                    data-bs-parent="#sidenavAccordionPages"
+                  >
+                    <nav class="sb-sidenav-menu-nested nav">
+                      <a class="nav-link" href="login.html">Login</a>
+                      <a class="nav-link" href="register.html">Register</a>
+                      <a class="nav-link" href="password.html"
+                        >Forgot Password</a
+                      >
+                    </nav>
+                  </div>
+                  <a
+                    class="nav-link collapsed"
+                    href="#"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#pagesCollapseError"
+                    aria-expanded="false"
+                    aria-controls="pagesCollapseError"
+                  >
+                    Error
+                    <div class="sb-sidenav-collapse-arrow">
+                      <i class="fas fa-angle-down"></i>
+                    </div>
+                  </a>
+                  <div
+                    class="collapse"
+                    id="pagesCollapseError"
+                    aria-labelledby="headingOne"
+                    data-bs-parent="#sidenavAccordionPages"
+                  >
+                    <nav class="sb-sidenav-menu-nested nav">
+                      <a class="nav-link" href="401.html">401 Page</a>
+                      <a class="nav-link" href="404.html">404 Page</a>
+                      <a class="nav-link" href="500.html">500 Page</a>
+                    </nav>
+                  </div>
+                </nav>
+              </div>
+              <div class="sb-sidenav-menu-heading">Addons</div>
+              <a class="nav-link" href="charts.html">
+                <div class="sb-nav-link-icon">
+                  <i class="fas fa-chart-area"></i>
+                </div>
+                Charts
+              </a>
+              <a class="nav-link" href="tables.html">
+                <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+                Tables
+              </a>
+            </div>
+          </div>
+          <div class="sb-sidenav-footer text-white">
+            <div class="small">Logged in as:</div>
+            <div class="small" id="employee_name"></div>
+          </div>
+        </nav>
+      </div>
+      <div id="layoutSidenav_content">
+        <main>
+          <div class="container px-4">
+            <h1 class="mt-4">Dashboard</h1>
 
-        <!--original script for logout-->
-        <script type="text/javascript" src="js/auth/employee_logout.js"></script>
+            <div class="row">
+              <div class="col-xl-3 col-md-6">
+                <a class="text-decoration-none" href="#">
+                  <div class="card bg-success text-white mb-4">
+                    <div class="card-body">
+                      <p class="fw-bold text-center">Total Customers</p>
+                      <div class="d-flex align-items-center gap-4">
+                        <i class="fa-solid fa-users icon-size"></i>
+                        <h1 class="text-center fs-1">100</h1>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              </div>
+              <div class="col-xl-3 col-md-6">
+                <a class="text-decoration-none" href="#">
+                  <div class="card bg-danger text-white mb-4">
+                    <div class="card-body">
+                      <p class="fw-bold text-center">
+                        Number of Customers Died
+                      </p>
+                      <div class="d-flex align-items-center gap-4">
+                        <i class="fas fa-skull icon-size"></i>
+                        <h1 class="text-center fs-1">100</h1>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              </div>
+              <div class="col-xl-3 col-md-6">
+                <a class="text-decoration-none" href="#">
+                  <div class="card bg-success text-white mb-4">
+                    <div class="card-body">
+                      <p class="fw-bold text-center">Add Customer</p>
+                      <div
+                        class="d-flex justify-content-center align-items-center"
+                      >
+                        <i class="fas fa-plus icon-size"></i>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </div>
+            <div class="card mb-4">
+              <div class="card-header bg-success text-white">
+                <i class="fas fa-users me-1"></i>
+                All Customers
+              </div>
+              <div class="card-body">
+                <table id="datatablesSimple">
+                  <thead>
+                    <tr>
+                      <th>Customer ID</th>
+                      <th>Last Name</th>
+                      <th>First Name</th>
+                      <th>Address</th>
+                      <th>Age</th>
+                      <th>Gender</th>
+                      <th>Birth Date</th>
+                      <th>Death Date</th>
+                      <th>Update</th>
+                      <th>Delete</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>111</td>
+                      <td>Cabodbod</td>
+                      <td>Cyrel</td>
+                      <td>Cabadbaran</td>
+                      <td>18</td>
+                      <td>Male</td>
+                      <td>Jan-19-2003</td>
+                      <td>Jan-20-2003</td>
+                      <td>
+                        <button type="button" class="btn btn-primary">
+                          Update
+                        </button>
+                      </td>
+                      <td>
+                        <button type="button" class="btn btn-danger">
+                          Delete
+                        </button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>112</td>
+                      <td>Pelonis</td>
+                      <td>Trisha</td>
+                      <td>Butuan</td>
+                      <td>53</td>
+                      <td>Female</td>
+                      <td>Aug-3-2002</td>
+                      <td>null</td>
+                      <td>
+                        <button type="button" class="btn btn-primary">
+                          Update
+                        </button>
+                      </td>
+                      <td>
+                        <button type="button" class="btn btn-danger">
+                          Delete
+                        </button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </main>
+        <footer class="py-4 bg-light mt-auto">
+          <div class="container-fluid px-4">
+            <div class="d-flex align-items-center justify-content-center small">
+              <div class="text-muted">Copyright &copy; IT-110 2024</div>
+            </div>
+          </div>
+        </footer>
+      </div>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="js/scripts.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="assets/demo/chart-area-demo.js"></script>
+    <script src="assets/demo/chart-bar-demo.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="js/datatables-simple-demo.js"></script>
 
-        <!--script to display the name of the employee-->
-        <script>
-            document.addEventListener("DOMContentLoaded", function () {
-                // Retrieve data from localStorage
-                var firstName = localStorage.getItem("first_name");
-                var lastName = localStorage.getItem("last_name");
-    
-                // Display data in the HTML
-                var userDataDiv = document.getElementById("employee_name");
-                if (userDataDiv) {
-                    userDataDiv.innerHTML = `
+    <!--original script for logout-->
+    <script type="text/javascript" src="js/auth/employee_logout.js"></script>
+
+    <!--script to display the name of the employee-->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Retrieve data from localStorage
+        var firstName = localStorage.getItem("first_name");
+        var lastName = localStorage.getItem("last_name");
+
+        // Display data in the HTML
+        var userDataDiv = document.getElementById("employee_name");
+        if (userDataDiv) {
+          userDataDiv.innerHTML = `
                         ${firstName} ${lastName}
                     `;
-                }
+        }
+      });
+    </script>
+    <!--script for showing the new password-->
+    <script>
+      document
+        .getElementById("showpassword-icon")
+        .addEventListener("click", function () {
+          var passwordField = document.getElementById("employeePassword");
+          var lockIcon = document.getElementById("lock");
+          var unlockIcon = document.getElementById("unlock");
+
+          if (passwordField.type === "password") {
+            passwordField.type = "text";
+            unlockIcon.classList.remove("d-none");
+            lockIcon.classList.add("d-none");
+          } else {
+            passwordField.type = "password";
+            unlockIcon.classList.add("d-none");
+            lockIcon.classList.remove("d-none");
+          }
+        });
+    </script>
+
+    <!--script for showing the confirm password-->
+    <script>
+      document
+        .getElementById("confirmpassword-icon")
+        .addEventListener("click", function () {
+          var passwordField = document.getElementById(
+            "employeeConfirmPassword"
+          );
+          var lockIcon = document.getElementById("confirm_lock");
+          var unlockIcon = document.getElementById("confirm_unlock");
+
+          if (passwordField.type === "password") {
+            passwordField.type = "text";
+            unlockIcon.classList.remove("d-none");
+            lockIcon.classList.add("d-none");
+          } else {
+            passwordField.type = "password";
+            unlockIcon.classList.add("d-none");
+            lockIcon.classList.remove("d-none");
+          }
+        });
+    </script>
+
+    <script>
+      document
+        .getElementById("proceedButton") // Updated to match the button ID
+        .addEventListener("click", checkPasswords);
+
+      function checkPasswords() {
+        var newPassword = document.getElementById("employeePassword").value;
+        var confirmPassword = document.getElementById(
+          "employeeConfirmPassword"
+        ).value;
+        var passwordError = document.getElementById("passwordError");
+
+        if (newPassword !== confirmPassword) {
+          // Passwords do not match, display error message
+          passwordError.classList.remove("d-none");
+          passwordSuccess.classList.add("d-none");
+        } else {
+          // Passwords match, proceed with your logic
+          passwordError.classList.add("d-none");
+
+          const backendURL = "http://saintpeter-backend.test/api";
+          const employee_id = localStorage.getItem("employee_id");
+          const token = localStorage.getItem("employee_token");
+
+          // Fetch API to send the password change request
+          fetch(`${backendURL}/employee/${employee_id}`, {
+            method: "PUT",
+            headers: {
+              "Content-Type": "application/json",
+              "Authorization": `Bearer ${token}`,
+            },
+            body: JSON.stringify({
+              password: confirmPassword,
+            }),
+          })
+            .then((response) => {
+              if (!response.ok) {
+                throw new Error("Password update failed");
+              }
+              return response.json();
+            })
+            .then((data) => {
+              // Handle success
+              console.log("Password updated successfully", data);
+
+              // Clear input fields
+              document.getElementById("employeePassword").value = "";
+              document.getElementById("employeeConfirmPassword").value = "";
+              passwordSuccess.classList.remove("d-none");
+            })
+            .catch((error) => {
+              // Handle error
+              console.error("Error updating password:", error.message);
+              // Display an error message to the user or handle it accordingly
             });
-        </script>
-    </body>
+        }
+      }
+    </script>
+  </body>
 </html>
