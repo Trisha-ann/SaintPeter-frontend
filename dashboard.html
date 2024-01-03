@@ -183,7 +183,7 @@
         >
           <div class="sb-sidenav-menu">
             <div class="nav">
-              <div class="sb-sidenav-menu-heading">Core</div>
+              <div class="sb-sidenav-menu-heading">General</div>
               <a class="nav-link" href="dashboard.html">
                 <div class="sb-nav-link-icon">
                   <i class="fas fa-tachometer-alt"></i>
@@ -230,74 +230,8 @@
               >
                 <div class="sb-nav-link-icon"><i class="fas fa-book"></i></div>
                 Payment Records
-                <div class="sb-sidenav-collapse-arrow">
-                  <i class="fas fa-angle-down"></i>
-                </div>
               </a>
-              <div
-                class="collapse"
-                id="collapsePages"
-                aria-labelledby="headingTwo"
-                data-bs-parent="#sidenavAccordion"
-              >
-                <nav
-                  class="sb-sidenav-menu-nested nav accordion"
-                  id="sidenavAccordionPages"
-                >
-                  <a
-                    class="nav-link collapsed"
-                    href="#"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#pagesCollapseAuth"
-                    aria-expanded="false"
-                    aria-controls="pagesCollapseAuth"
-                  >
-                    Authentication
-                    <div class="sb-sidenav-collapse-arrow">
-                      <i class="fas fa-angle-down"></i>
-                    </div>
-                  </a>
-                  <div
-                    class="collapse"
-                    id="pagesCollapseAuth"
-                    aria-labelledby="headingOne"
-                    data-bs-parent="#sidenavAccordionPages"
-                  >
-                    <nav class="sb-sidenav-menu-nested nav">
-                      <a class="nav-link" href="login.html">Login</a>
-                      <a class="nav-link" href="register.html">Register</a>
-                      <a class="nav-link" href="password.html"
-                        >Forgot Password</a
-                      >
-                    </nav>
-                  </div>
-                  <a
-                    class="nav-link collapsed"
-                    href="#"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#pagesCollapseError"
-                    aria-expanded="false"
-                    aria-controls="pagesCollapseError"
-                  >
-                    Error
-                    <div class="sb-sidenav-collapse-arrow">
-                      <i class="fas fa-angle-down"></i>
-                    </div>
-                  </a>
-                  <div
-                    class="collapse"
-                    id="pagesCollapseError"
-                    aria-labelledby="headingOne"
-                    data-bs-parent="#sidenavAccordionPages"
-                  >
-                    <nav class="sb-sidenav-menu-nested nav">
-                      <a class="nav-link" href="401.html">401 Page</a>
-                      <a class="nav-link" href="404.html">404 Page</a>
-                      <a class="nav-link" href="500.html">500 Page</a>
-                    </nav>
-                  </div>
-                </nav>
-              </div>
+              
               <div class="sb-sidenav-menu-heading">Addons</div>
               <a class="nav-link" href="charts.html">
                 <div class="sb-nav-link-icon">
@@ -347,7 +281,9 @@
                       </p>
                       <div class="d-flex align-items-center gap-4">
                         <i class="fas fa-skull icon-size"></i>
-                        <h1 class="text-center fs-1" id="numberOfCustomersDied">0</h1>
+                        <h1 class="text-center fs-1" id="numberOfCustomersDied">
+                          0
+                        </h1>
                       </div>
                     </div>
                   </div>
@@ -406,7 +342,10 @@
               <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                   <div class="modal-header">
-                    <h1 class="modal-title fs-5 text-white" id="updateCustomerLabel">
+                    <h1
+                      class="modal-title fs-5 text-white"
+                      id="updateCustomerLabel"
+                    >
                       Update Customer Details
                     </h1>
                     <button
@@ -417,78 +356,195 @@
                     ></button>
                   </div>
                   <div class="modal-body">
-                    <form action="" id="employee_login">
-                      <label class="form-label text-color" for="customerLastName">Last Name</label>
-                    <div class="input-group mb-4">
-                      <span class="input-group-text border-input bg-transparent" id="customerLastName-icon">
-                        <i class="fas fa-user text-color"></i>
-                      </span>
-                      <input type="text" id="customerLastName" class="form-control form-control-lg border-input text-color" aria-label="Customer Lastname" aria-describedby="customerLastName-icon" autocomplete="off" />
-                    </div>
+                    <form action="" id="updateCustomerForm">
+                      <input
+                          type="text"
+                          id="updateModalCustomersID"
+                          class="form-control form-control-lg border-input text-color d-none"
+                          aria-label="Customer ID"
+                          aria-describedby="updateModalCustomerID-icon"
+                          autocomplete="off"
+                        />
+                      <label
+                        class="form-label text-color"
+                        for="updateModalLastName"
+                        >Last Name</label
+                      >
+                      <div class="input-group mb-4">
+                        <span
+                          class="input-group-text border-input bg-transparent"
+                          id="updateModalLastName-icon"
+                        >
+                          <i class="fas fa-user text-color"></i>
+                        </span>
+                        <input
+                          type="text"
+                          id="updateModalLastName"
+                          class="form-control form-control-lg border-input text-color"
+                          aria-label="Customer Lastname"
+                          aria-describedby="updateModalLastName-icon"
+                          autocomplete="off"
+                        />
+                      </div>
 
-                    <label class="form-label text-color" for="customerFirstName">First Name</label>
-                    <div class="input-group mb-4">
-                      <span class="input-group-text border-input bg-transparent" id="customerFirstName-icon">
-                        <i class="fas fa-user text-color"></i>
-                      </span>
-                      <input type="text" id="customerFirstName" class="form-control form-control-lg border-input text-color" aria-label="Customer Firstname" aria-describedby="customerFirstName-icon" autocomplete="off" />
-                    </div>
+                      <label
+                        class="form-label text-color"
+                        for="customerFirstName"
+                        >First Name</label
+                      >
+                      <div class="input-group mb-4">
+                        <span
+                          class="input-group-text border-input bg-transparent"
+                          id="customerFirstName-icon"
+                        >
+                          <i class="fas fa-user text-color"></i>
+                        </span>
+                        <input
+                          type="text"
+                          id="customerFirstName"
+                          class="form-control form-control-lg border-input text-color"
+                          aria-label="Customer Firstname"
+                          aria-describedby="customerFirstName-icon"
+                          autocomplete="off"
+                        />
+                      </div>
 
-                    <label class="form-label text-color" for="customerAddress">Address</label>
-                    <div class="input-group mb-4">
-                      <span class="input-group-text border-input bg-transparent" id="address-icon">
-                        <i class="fas fa-address-book"></i>
-                      </span>
-                      <input type="text" id="customerAddress" class="form-control form-control-lg border-input text-color" aria-label="Customer Address" aria-describedby="address-icon" autocomplete="off" />
-                    </div>
+                      <label class="form-label text-color" for="customerAddress"
+                        >Address</label
+                      >
+                      <div class="input-group mb-4">
+                        <span
+                          class="input-group-text border-input bg-transparent"
+                          id="address-icon"
+                        >
+                          <i class="fas fa-address-book"></i>
+                        </span>
+                        <input
+                          type="text"
+                          id="customerAddress"
+                          class="form-control form-control-lg border-input text-color"
+                          aria-label="Customer Address"
+                          aria-describedby="address-icon"
+                          autocomplete="off"
+                        />
+                      </div>
 
-                    <label class="form-label text-color" for="customerAge">Age</label>
-                    <div class="input-group mb-4">
-                      <span class="input-group-text border-input bg-transparent" id="age-icon">
-                        <i class="fa fa-child-reaching"></i>
-                      </span>
-                      <input type="text" id="customerAge" class="form-control form-control-lg border-input text-color" aria-label="Customer Age" aria-describedby="age-icon" autocomplete="off" />
-                    </div>
+                      <label class="form-label text-color" for="customerAge"
+                        >Age</label
+                      >
+                      <div class="input-group mb-4">
+                        <span
+                          class="input-group-text border-input bg-transparent"
+                          id="age-icon"
+                        >
+                          <i class="fa fa-child-reaching"></i>
+                        </span>
+                        <input
+                          type="text"
+                          id="customerAge"
+                          class="form-control form-control-lg border-input text-color text-muted"
+                          aria-label="Customer Age"
+                          aria-describedby="age-icon"
+                          autocomplete="off"
+                          readonly
+                        />
+                      </div>
 
-                    <label class="form-label text-color" for="customerGender">Gender</label>
-                    <div class="input-group mb-4">
-                      <span class="input-group-text border-input bg-transparent" id="gender-icon">
-                        <i class="fa-solid fa-venus-mars"></i>
-                      </span>
-                      <select id="customerGender" class="form-control form-control-lg border-input text-color" aria-label="Customer Gender" aria-describedby="gender-icon">
-                        <option value="male">Male</option>
-                        <option value="female">Female</option>
-                        <option value="preferNotToSay">Not Prefer to Say</option>
-                      </select>
-                    </div>
+                      <label class="form-label text-color" for="customerGender"
+                        >Gender</label
+                      >
+                      <div class="input-group mb-4">
+                        <span
+                          class="input-group-text border-input bg-transparent"
+                          id="gender-icon"
+                        >
+                          <i class="fa-solid fa-venus-mars"></i>
+                        </span>
+                        <select
+                          id="customerGender"
+                          class="form-control form-control-lg border-input text-color"
+                          aria-label="Customer Gender"
+                          aria-describedby="gender-icon"
+                        >
+                          <option value="" selected>default</option>
+                        </select>
+                      </div>
 
-                    <label class="form-label text-color" for="customerBirth">Birth Date</label>
-                    <div class="input-group mb-4">
-                      <span class="input-group-text border-input bg-transparent" id="birth-icon">
-                        <i class="fa fa-cake-candles"></i>
-                      </span>
-                      <input type="date" id="customerBirth" class="form-control form-control-lg border-input text-color" aria-label="Customer Birth" aria-describedby="birth-icon" autocomplete="off" />
-                    </div>
+                      <label class="form-label text-color" for="customerBirth"
+                        >Birth Date</label
+                      >
+                      <div class="input-group mb-4">
+                        <span
+                          class="input-group-text border-input bg-transparent"
+                          id="birth-icon"
+                        >
+                          <i class="fa fa-cake-candles"></i>
+                        </span>
+                        <input
+                          type="date"
+                          id="customerBirth"
+                          class="form-control form-control-lg border-input text-color"
+                          aria-label="Customer Birth"
+                          aria-describedby="birth-icon"
+                          autocomplete="off"
+                        />
+                      </div>
 
-                    <label class="form-label text-color" for="customerDeath">Death Date <em class="text-danger">*( if customer already dead )</em></label>
-                    <div class="input-group mb-4">
-                      <span class="input-group-text border-input bg-transparent" id="death-icon">
-                        <i class="fa fa-book-skull"></i>
-                      </span>
-                      <input type="date" id="customerDeath" class="form-control form-control-lg border-input text-color" aria-label="Customer Death" aria-describedby="death-icon" autocomplete="off" />
-                    </div>
-        
-                    <label class="form-label text-color" for="customerEmployee">Employee ID</label>
-                    <div class="input-group mb-4">
-                      <span class="input-group-text border-input bg-transparent" id="employee-icon">
-                        <i class="fa fa-user-tie"></i>
-                      </span>
-                      <input type="text" id="customerEmployee" class="form-control form-control-lg border-input text-color" aria-label="Customer Employee" aria-describedby="employee-icon" autocomplete="off" />
-                    </div>
-        
-                    <div class="d-flex justify-content-center align-items-center">
-                      <button class="btn btn-success btn-lg btn-block" type="submit">Save Changes</button>
-                    </div>
+                      <label class="form-label text-color" for="customerDeath"
+                        >Death Date
+                        <em class="text-danger"
+                          >*( if customer already dead )</em
+                        ></label
+                      >
+                      <div class="input-group mb-4">
+                        <span
+                          class="input-group-text border-input bg-transparent"
+                          id="death-icon"
+                        >
+                          <i class="fa fa-book-skull"></i>
+                        </span>
+                        <input
+                          type="date"
+                          id="customerDeath"
+                          class="form-control form-control-lg border-input text-color"
+                          aria-label="Customer Death"
+                          aria-describedby="death-icon"
+                          autocomplete="off"
+                        />
+                      </div>
+
+                      <label
+                        class="form-label text-color"
+                        for="customerEmployee"
+                        >Employee ID</label
+                      >
+                      <div class="input-group mb-4">
+                        <span
+                          class="input-group-text border-input bg-transparent"
+                          id="employee-icon"
+                        >
+                          <i class="fa fa-user-tie"></i>
+                        </span>
+                        <input
+                          type="text"
+                          id="customerEmployee"
+                          class="form-control form-control-lg border-input text-color"
+                          aria-label="Customer Employee"
+                          aria-describedby="employee-icon"
+                          autocomplete="off"
+                        />
+                      </div>
+
+                      <div
+                        class="d-flex justify-content-center align-items-center"
+                      >
+                        <button
+                          class="btn btn-success btn-lg btn-block"
+                          type="submit"
+                        >
+                          Save Changes
+                        </button>
+                      </div>
                     </form>
                   </div>
                 </div>
@@ -638,5 +694,210 @@
           }
         });
     </script>
+
+    <!-- script for showing a specific customer -->
+    <script>
+      window.addEventListener("DOMContentLoaded", (event) => {
+        // Add event listener for the "Update" button clicks
+        document.addEventListener("click", (e) => {
+          if (e.target.classList.contains("update-btn")) {
+            const customerId = e.target.getAttribute("data-customer-id");
+            // Fetch the specific customer data using customerId and populate the update modal
+            fetchCustomerDataAndUpdateModal(customerId);
+          }
+        });
+      });
+
+      // Add event listener for the modal's "hidden" event
+      const updateModal = document.getElementById("updateCustomer");
+      updateModal.addEventListener("hidden.bs.modal", () => {
+        // Clear input fields when the modal is hidden
+        document.getElementById("updateModalCustomersID").value = "";
+        document.getElementById("updateModalLastName").value = "";
+        document.getElementById("customerFirstName").value = "";
+        document.getElementById("customerAddress").value = "";
+        document.getElementById("customerAge").value = "";
+        document.getElementById("customerGender").value = ""; // clear the selected option
+        document.getElementById("customerBirth").value = "";
+        document.getElementById("customerDeath").value = "";
+        document.getElementById("customerEmployee").value = "";
+      });
+
+      // Function to fetch customer data and populate the update modal
+      function fetchCustomerDataAndUpdateModal(customerId) {
+        const backendURL = "http://saintpeter-backend.test/api";
+        const token = localStorage.getItem("employee_token");
+
+        // Fetch the customer data based on the customerId
+        fetch(`${backendURL}/customers/${customerId}`, {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+        })
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            return response.json();
+          })
+          .then((customerData) => {
+            // Populate the update modal with the retrieved data
+            populateUpdateModal(customerData);
+          })
+          .catch((error) => {
+            console.error("Error fetching customer data:", error);
+          });
+      }
+
+      // Function to populate the update modal with customer data
+      function populateUpdateModal(customerData) {
+        // Assuming you have elements in your modal with specific IDs to display customer data
+        document.getElementById("updateModalCustomersID").value =
+          customerData.customers_id;
+        document.getElementById("updateModalLastName").value =
+          customerData.last_name;
+        document.getElementById("customerFirstName").value =
+          customerData.first_name;
+        document.getElementById("customerAddress").value = customerData.address;
+        document.getElementById("customerAge").value = customerData.age;
+        // Populate the gender select element based on the customer's gender
+        const genderSelect = document.getElementById("customerGender");
+        // Clear existing options
+        genderSelect.innerHTML = "";
+        // Define gender options based on the fetched data
+        const genderOptions = [
+          { value: "Male", label: "Male" },
+          { value: "Female", label: "Female" },
+          { value: "Prefer Not To Say", label: "Not Prefer to Say" },
+        ];
+
+        // Populate options and select the appropriate one
+        genderOptions.forEach((option) => {
+          const optionElement = document.createElement("option");
+          optionElement.value = option.value;
+          optionElement.text = option.label;
+          genderSelect.add(optionElement);
+
+          if (customerData.gender === option.value) {
+            optionElement.selected = true;
+          }
+        });
+        document.getElementById("customerBirth").value =
+          customerData.birth_date;
+        document.getElementById("customerDeath").value =
+          customerData.death_date;
+        document.getElementById("customerEmployee").value =
+          customerData.employee_id;
+      }
+    </script>
+
+    <!-- script for update customer -->
+    <script>
+      document.addEventListener("DOMContentLoaded", (event) => {
+        const updateCustomerForm =
+          document.getElementById("updateCustomerForm");
+
+        updateCustomerForm.addEventListener("submit", (e) => {
+          e.preventDefault(); // Prevent the default form submission
+
+          // Get the values from the form fields
+          const customer_id = document.getElementById("updateModalCustomersID").value;
+          const lastName = document.getElementById("updateModalLastName").value;
+          const firstName = document.getElementById("customerFirstName").value;
+          const address = document.getElementById("customerAddress").value;
+          const age = document.getElementById("customerAge").value;
+          const gender = document.getElementById("customerGender").value;
+          const birthDate = document.getElementById("customerBirth").value;
+          const deathDate = document.getElementById("customerDeath").value;
+          const employeeId = document.getElementById("customerEmployee").value;
+
+          // Prepare the data for the update
+          const updatedData = {
+            customers_id: customer_id,
+            last_name: lastName,
+            first_name: firstName,
+            address: address,
+            age: age,
+            gender: gender,
+            birth_date: birthDate,
+            death_date: deathDate,
+            employee_id: employeeId,
+          };
+
+          // Call the updateCustomerData function with the customer ID and updated data
+          updateCustomerData(updatedData, customer_id);
+        });
+      });
+
+      function updateCustomerData(updatedData, customer_id) {
+        const backendURL = "http://saintpeter-backend.test/api";
+        const token = localStorage.getItem("employee_token");
+
+        fetch(`${backendURL}/customers/${customer_id}`,{
+          method: "PUT",
+          headers:{
+            "Content-Type": "application/json",
+                "Authorization": `Bearer ${token}`,
+          },
+          body: JSON.stringify(updatedData),
+        })
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            return response.json();
+          })
+          .then((updatedCustomerData) => {
+            // Handle the updated data as needed
+            console.log("Customer data updated:", updatedCustomerData);
+            window.location.reload(); 
+          })
+          .catch((error) => {
+            console.error("Error updating customer data:", error);
+          });
+      }
+    </script>
+
+    <!-- script for delete customer -->
+    <script>
+      window.addEventListener("DOMContentLoaded", (event) => {
+        // Add event listener for the "Delete" button clicks
+        document.addEventListener("click", (e) => {
+          if (e.target.classList.contains("delete-btn")) {
+            const customerId = e.target.getAttribute("data-customer-id");
+            console.log("customer id:", customerId);
+            const backendURL = "http://saintpeter-backend.test/api";
+            const token = localStorage.getItem("employee_token");
+    
+            // Fetch the customer data based on the customerId
+            fetch(`${backendURL}/customers/${customerId}`, {
+              method: "DELETE",
+              headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${token}`,
+              },
+            })
+              .then((response) => {
+                if (!response.ok) {
+                  throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+                return response.json();
+              })
+              .then((data) => {
+                console.log("Delete successful");
+                console.log("Deleted customer:", data);
+                window.location.reload()
+              })
+              .catch((error) => {
+                console.error("Error deleting customer:", error);
+              });
+          }
+        });
+      });
+    </script>
+    
+    
   </body>
 </html>

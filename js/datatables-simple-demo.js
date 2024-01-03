@@ -61,8 +61,8 @@ window.addEventListener("DOMContentLoaded", (event) => {
             customer.gender,
             formatDate(customer.birth_date),
             customer.death_date !== null ? formatDate(customer.death_date) : "",
-            '<button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#updateCustomer" data-customer-id="C-${customer.customers_id}"><i class="fas fa-user-edit"></i> Update</button>',
-            '<button class="btn btn-danger"><i class="fas fa-trash"></i> Delete</button>',
+            `<button class="btn btn-primary update-btn" data-bs-toggle="modal" data-bs-target="#updateCustomer" data-customer-id="${customer.customers_id}"><i class="fas fa-user-edit"></i> Update</button>`,
+            `<button class="btn btn-danger delete-btn" data-customer-id="${customer.customers_id}"><i class="fas fa-trash"></i> Delete</button>`,
           ]),
         },
       });
@@ -76,6 +76,9 @@ window.addEventListener("DOMContentLoaded", (event) => {
         const options = { year: "numeric", month: "2-digit", day: "2-digit" };
         return new Date(dateString).toLocaleDateString(undefined, options);
       }
+
     })
     .catch((error) => {});
+
 });
+
