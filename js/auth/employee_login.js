@@ -13,8 +13,8 @@ document.addEventListener("DOMContentLoaded", function () {
   loginForm.addEventListener("submit", function (event) {
     event.preventDefault();
 
-    var employeeIdInput = loginForm.querySelector('input[type="text"]');
-    var passwordInput = loginForm.querySelector('input[type="password"]');
+    var employeeIdInput = document.getElementById("employeeID");
+    var passwordInput = document.getElementById("employeePassword");
 
     if (!employeeIdInput || !passwordInput) {
       console.error("Error: Unable to find input elements");
@@ -38,12 +38,12 @@ document.addEventListener("DOMContentLoaded", function () {
         if (response.ok) {
           return response.json();
         } else if (response.status === 404) {
-            // Employee ID not found
-            showAlert("danger", "Employee ID not found");
-            throw new Error("Employee ID not found");
-          } else {
-            throw new Error("Error: " + response.statusText);
-          }
+          // Employee ID not found
+          showAlert("danger", "Employee ID not found");
+          throw new Error("Employee ID not found");
+        } else {
+          throw new Error("Error: " + response.statusText);
+        }
       })
       .then(function (responseJson) {
         if (responseJson.employee) {
@@ -63,8 +63,6 @@ document.addEventListener("DOMContentLoaded", function () {
       })
       .catch(function (error) {
         if (error.message !== "Employee ID not found") {
-          // Show error alert only if it's not due to employee ID not found
-          console.error("Error:", error);
           showAlert("danger", "Incorrect Credentials!");
         }
       });

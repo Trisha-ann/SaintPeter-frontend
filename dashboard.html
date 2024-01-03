@@ -10,11 +10,13 @@
     <meta name="description" content="" />
     <meta name="author" content="" />
     <title>Dashboard - Employee</title>
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
     <link
       href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css"
       rel="stylesheet"
     />
     <link href="css/styles.css" rel="stylesheet" />
+
     <script
       src="https://use.fontawesome.com/releases/v6.3.0/js/all.js"
       crossorigin="anonymous"
@@ -103,70 +105,72 @@
             >
               Password Successfully Changed
             </div>
-            <label class="form-label text-color" for="employeePassword"
-              >New Password</label
-            >
-            <div class="input-group mb-4">
-              <span
-                class="input-group-text border-input bg-transparent"
-                id="new_password-icon"
+            <form action="" id="employee_changePassword">
+              <label class="form-label text-color" for="employeePassword"
+                >New Password</label
               >
-                <button
-                  type="button"
-                  id="showpassword-icon"
-                  class="border-0 bg-transparent"
+              <div class="input-group mb-4">
+                <span
+                  class="input-group-text border-input bg-transparent"
+                  id="new_password-icon"
                 >
-                  <i class="fas fa-lock text-color" id="lock"></i>
-                  <i class="fas fa-unlock text-color d-none" id="unlock"></i>
-                </button>
-              </span>
-              <input
-                type="password"
-                id="employeePassword"
-                class="form-control form-control-lg border-input text-color"
-                aria-label="Employee Password"
-                aria-describedby="new_password-icon"
-              />
-            </div>
+                  <button
+                    type="button"
+                    id="showpassword-icon"
+                    class="border-0 bg-transparent"
+                  >
+                    <i class="fas fa-lock text-color" id="lock"></i>
+                    <i class="fas fa-unlock text-color d-none" id="unlock"></i>
+                  </button>
+                </span>
+                <input
+                  type="password"
+                  id="employeePassword"
+                  name="employeePassword"
+                  class="form-control form-control-lg border-input text-color"
+                  aria-label="Employee Password"
+                  aria-describedby="new_password-icon"
+                  required
+                />
+              </div>
 
-            <label class="form-label text-color" for="employeeConfirmPassword"
-              >Confirm Password</label
-            >
-            <div class="input-group mb-4">
-              <span
-                class="input-group-text border-input bg-transparent"
-                id="confirm_password-icon"
+              <label class="form-label text-color" for="employeeConfirmPassword"
+                >Confirm Password</label
               >
-                <button
-                  type="button"
-                  id="confirmpassword-icon"
-                  class="border-0 bg-transparent"
+              <div class="input-group mb-4">
+                <span
+                  class="input-group-text border-input bg-transparent"
+                  id="confirm_password-icon"
                 >
-                  <i class="fas fa-lock text-color" id="confirm_lock"></i>
-                  <i
-                    class="fas fa-unlock text-color d-none"
-                    id="confirm_unlock"
-                  ></i>
-                </button>
-              </span>
-              <input
-                type="password"
-                id="employeeConfirmPassword"
-                class="form-control form-control-lg border-input text-color"
-                aria-label="Employee Password"
-                aria-describedby="confirm_password-icon"
-              />
-            </div>
+                  <button
+                    type="button"
+                    id="confirmpassword-icon"
+                    class="border-0 bg-transparent"
+                  >
+                    <i class="fas fa-lock text-color" id="confirm_lock"></i>
+                    <i
+                      class="fas fa-unlock text-color d-none"
+                      id="confirm_unlock"
+                    ></i>
+                  </button>
+                </span>
+                <input
+                  type="password"
+                  id="employeeConfirmPassword"
+                  name="employeeConfirmPassword"
+                  class="form-control form-control-lg border-input text-color"
+                  aria-label="Employee Password"
+                  aria-describedby="confirm_password-icon"
+                  required
+                />
+              </div>
 
-            <div class="d-flex justify-content-center align-items-center">
-              <button
-                class="btn btn-success btn-lg btn-block"
-                type="submit"
-                id="proceedButton"
-              >
-                Proceed
-              </button>
-            </div>
+              <div class="d-flex justify-content-center align-items-center">
+                <button class="btn btn-success btn-lg btn-block" type="submit">
+                  Proceed
+                </button>
+              </div>
+            </form>
           </div>
         </div>
       </div>
@@ -326,7 +330,9 @@
                       <p class="fw-bold text-center">Total Customers</p>
                       <div class="d-flex align-items-center gap-4">
                         <i class="fa-solid fa-users icon-size"></i>
-                        <h1 class="text-center fs-1">100</h1>
+                        <h1 class="text-center fs-1" id="totalCustomersCount">
+                          0
+                        </h1>
                       </div>
                     </div>
                   </div>
@@ -341,7 +347,7 @@
                       </p>
                       <div class="d-flex align-items-center gap-4">
                         <i class="fas fa-skull icon-size"></i>
-                        <h1 class="text-center fs-1">100</h1>
+                        <h1 class="text-center fs-1" id="numberOfCustomersDied">0</h1>
                       </div>
                     </div>
                   </div>
@@ -355,7 +361,7 @@
                       <div
                         class="d-flex justify-content-center align-items-center"
                       >
-                        <i class="fas fa-plus icon-size"></i>
+                        <i class="fas fa-user-plus icon-size"></i>
                       </div>
                     </div>
                   </div>
@@ -383,8 +389,109 @@
                       <th>Delete</th>
                     </tr>
                   </thead>
-                  <tbody></tbody>
+                  <tbody id="tbody">
+                    <!-- Your data rows will go here -->
+                  </tbody>
                 </table>
+              </div>
+            </div>
+            <!--Update Customer Modal -->
+            <div
+              class="modal fade"
+              id="updateCustomer"
+              tabindex="-1"
+              aria-labelledby="updateCustomerLabel"
+              aria-hidden="true"
+            >
+              <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5 text-white" id="updateCustomerLabel">
+                      Update Customer Details
+                    </h1>
+                    <button
+                      type="button"
+                      class="btn-close"
+                      data-bs-dismiss="modal"
+                      aria-label="Close"
+                    ></button>
+                  </div>
+                  <div class="modal-body">
+                    <form action="" id="employee_login">
+                      <label class="form-label text-color" for="customerLastName">Last Name</label>
+                    <div class="input-group mb-4">
+                      <span class="input-group-text border-input bg-transparent" id="customerLastName-icon">
+                        <i class="fas fa-user text-color"></i>
+                      </span>
+                      <input type="text" id="customerLastName" class="form-control form-control-lg border-input text-color" aria-label="Customer Lastname" aria-describedby="customerLastName-icon" autocomplete="off" />
+                    </div>
+
+                    <label class="form-label text-color" for="customerFirstName">First Name</label>
+                    <div class="input-group mb-4">
+                      <span class="input-group-text border-input bg-transparent" id="customerFirstName-icon">
+                        <i class="fas fa-user text-color"></i>
+                      </span>
+                      <input type="text" id="customerFirstName" class="form-control form-control-lg border-input text-color" aria-label="Customer Firstname" aria-describedby="customerFirstName-icon" autocomplete="off" />
+                    </div>
+
+                    <label class="form-label text-color" for="customerAddress">Address</label>
+                    <div class="input-group mb-4">
+                      <span class="input-group-text border-input bg-transparent" id="address-icon">
+                        <i class="fas fa-address-book"></i>
+                      </span>
+                      <input type="text" id="customerAddress" class="form-control form-control-lg border-input text-color" aria-label="Customer Address" aria-describedby="address-icon" autocomplete="off" />
+                    </div>
+
+                    <label class="form-label text-color" for="customerAge">Age</label>
+                    <div class="input-group mb-4">
+                      <span class="input-group-text border-input bg-transparent" id="age-icon">
+                        <i class="fa fa-child-reaching"></i>
+                      </span>
+                      <input type="text" id="customerAge" class="form-control form-control-lg border-input text-color" aria-label="Customer Age" aria-describedby="age-icon" autocomplete="off" />
+                    </div>
+
+                    <label class="form-label text-color" for="customerGender">Gender</label>
+                    <div class="input-group mb-4">
+                      <span class="input-group-text border-input bg-transparent" id="gender-icon">
+                        <i class="fa-solid fa-venus-mars"></i>
+                      </span>
+                      <select id="customerGender" class="form-control form-control-lg border-input text-color" aria-label="Customer Gender" aria-describedby="gender-icon">
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                        <option value="preferNotToSay">Not Prefer to Say</option>
+                      </select>
+                    </div>
+
+                    <label class="form-label text-color" for="customerBirth">Birth Date</label>
+                    <div class="input-group mb-4">
+                      <span class="input-group-text border-input bg-transparent" id="birth-icon">
+                        <i class="fa fa-cake-candles"></i>
+                      </span>
+                      <input type="date" id="customerBirth" class="form-control form-control-lg border-input text-color" aria-label="Customer Birth" aria-describedby="birth-icon" autocomplete="off" />
+                    </div>
+
+                    <label class="form-label text-color" for="customerDeath">Death Date <em class="text-danger">*(if customer already dead)</em></label>
+                    <div class="input-group mb-4">
+                      <span class="input-group-text border-input bg-transparent" id="death-icon">
+                        <i class="fa fa-book-skull"></i>
+                      </span>
+                      <input type="date" id="customerDeath" class="form-control form-control-lg border-input text-color" aria-label="Customer Death" aria-describedby="death-icon" autocomplete="off" />
+                    </div>
+        
+                    <label class="form-label text-color" for="customerEmployee">Employee ID</label>
+                    <div class="input-group mb-4">
+                      <span class="input-group-text border-input bg-transparent" id="employee-icon">
+                        <i class="fa fa-user-tie"></i>
+                      </span>
+                      <input type="text" id="customerEmployee" class="form-control form-control-lg border-input text-color" aria-label="Customer Employee" aria-describedby="employee-icon" autocomplete="off" />
+                    </div>
+        
+                    <div class="d-flex justify-content-center align-items-center">
+                      <button class="btn btn-success btn-lg btn-block" type="submit">Save Changes</button>
+                    </div>
+                    </form>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -398,18 +505,11 @@
         </footer>
       </div>
     </div>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
-      crossorigin="anonymous"
-    ></script>
+    <script></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
     <script src="js/scripts.js"></script>
     <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"
-      crossorigin="anonymous"
-    ></script>
-    <script src="assets/demo/chart-area-demo.js"></script>
-    <script src="assets/demo/chart-bar-demo.js"></script>
-    <script
+      defer
       src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js"
       crossorigin="anonymous"
     ></script>
@@ -481,119 +581,62 @@
     <!--script for updating the password-->
     <script>
       document
-        .getElementById("proceedButton") // Updated to match the button ID
-        .addEventListener("click", checkPasswords);
+        .getElementById("employee_changePassword") // Updated to match the button ID
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
 
-      function checkPasswords() {
-        var newPassword = document.getElementById("employeePassword").value;
-        var confirmPassword = document.getElementById(
-          "employeeConfirmPassword"
-        ).value;
-        var passwordError = document.getElementById("passwordError");
+          var newPassword = document.getElementById("employeePassword").value;
+          var confirmPassword = document.getElementById(
+            "employeeConfirmPassword"
+          ).value;
+          var passwordError = document.getElementById("passwordError");
+          var passwordSuccess = document.getElementById("passwordSuccess");
 
-        if (newPassword !== confirmPassword) {
-          // Passwords do not match, display error message
-          passwordError.classList.remove("d-none");
-          passwordSuccess.classList.add("d-none");
-        } else {
-          // Passwords match, proceed with your logic
-          passwordError.classList.add("d-none");
+          if (newPassword !== confirmPassword) {
+            // Passwords do not match, display error message
+            passwordError.classList.remove("d-none");
+            passwordSuccess.classList.add("d-none");
+          } else {
+            // Passwords match, proceed with your logic
+            passwordError.classList.add("d-none");
 
-          const backendURL = "http://saintpeter-backend.test/api";
-          const employee_id = localStorage.getItem("employee_id");
-          const token = localStorage.getItem("employee_token");
+            const backendURL = "http://saintpeter-backend.test/api";
+            const employee_id = localStorage.getItem("employee_id");
+            const token = localStorage.getItem("employee_token");
 
-          // Fetch API to send the password change request
-          fetch(`${backendURL}/employee/${employee_id}`, {
-            method: "PUT",
-            headers: {
-              "Content-Type": "application/json",
-              Authorization: `Bearer ${token}`,
-            },
-            body: JSON.stringify({
-              password: confirmPassword,
-            }),
-          })
-            .then((response) => {
-              if (!response.ok) {
-                throw new Error("Password update failed");
-              }
-              return response.json();
+            // Fetch API to send the password change request
+            fetch(`${backendURL}/employee/${employee_id}`, {
+              method: "PUT",
+              headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${token}`,
+              },
+              body: JSON.stringify({
+                password: confirmPassword,
+              }),
             })
-            .then((data) => {
-              // Handle success
-              console.log("Password updated successfully", data);
+              .then((response) => {
+                if (!response.ok) {
+                  throw new Error("Password update failed");
+                }
+                return response.json();
+              })
+              .then((data) => {
+                // Handle success
+                console.log("Password updated successfully", data);
 
-              // Clear input fields
-              document.getElementById("employeePassword").value = "";
-              document.getElementById("employeeConfirmPassword").value = "";
-              passwordSuccess.classList.remove("d-none");
-            })
-            .catch((error) => {
-              // Handle error
-              console.error("Error updating password:", error.message);
-              // Display an error message to the user or handle it accordingly
-            });
-        }
-      }
-    </script>
-
-    <!--script for fetching data table-->
-    <script>
-      document.addEventListener("DOMContentLoaded", fetchDataTable);
-
-      function fetchDataTable() {
-        const backendURL = "http://saintpeter-backend.test/api";
-        const token = localStorage.getItem("employee_token");
-
-        fetch(`${backendURL}/customers`, {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`,
-          },
-        })
-          .then((response) => {
-            if (!response.ok) {
-              throw new Error(`HTTP error! Status: ${response.status}`);
-            }
-            return response.json();
-          })
-          .then((data) => {
-            console.log("Data received", data);
-            displayData(data);
-          })
-          .catch((error) => {
-            // Handle error
-            console.error("Error fetching data:", error);
-          });
-      }
-
-      function displayData(data) {
-        const tbody = document.querySelector("#datatablesSimple tbody");
-
-        data.forEach((item) => {
-          const row = table.insertRow();
-          table.innerHTML = ''; // Clear previous content
-
-          // Assuming data structure, update property names accordingly
-          const properties = [
-            "customer_id",
-            "last_name",
-            "first_name",
-            "address",
-            "age",
-            "gender",
-            "birth_date",
-            "death_date",
-          ];
-
-          properties.forEach((property) => {
-            const cell = row.insertCell();
-            cell.textContent = item[property];
-          });
+                // Clear input fields
+                document.getElementById("employeePassword").value = "";
+                document.getElementById("employeeConfirmPassword").value = "";
+                passwordSuccess.classList.remove("d-none");
+              })
+              .catch((error) => {
+                // Handle error
+                console.error("Error updating password:", error.message);
+                // Display an error message to the user or handle it accordingly
+              });
+          }
         });
-      }
     </script>
   </body>
 </html>
