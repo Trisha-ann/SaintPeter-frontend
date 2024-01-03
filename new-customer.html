@@ -231,7 +231,7 @@
                 <div class="sb-nav-link-icon"><i class="fas fa-book"></i></div>
                 Payment Records
               </a>
-              
+
               <div class="sb-sidenav-menu-heading">Addons</div>
               <a class="nav-link" href="charts.html">
                 <div class="sb-nav-link-icon">
@@ -254,299 +254,232 @@
       <div id="layoutSidenav_content">
         <main>
           <div class="container px-4">
-            <h1 class="mt-4">Dashboard</h1>
+            <h1 class="mt-4">Add Customer</h1>
+            <div class="py-3 h-100">
+              <div
+                class="row d-flex justify-content-center align-items-center h-100"
+              >
+                <div class="col-12">
+                  <div
+                    class="card card-registration card-registration-2"
+                    style="border-radius: 15px"
+                  >
+                    <div class="card-body p-0">
+                      <div class="row g-0">
+                        <div class="col-lg-6">
+                          <div class="p-5">
+                            <h3 class="fw-normal mb-5 text-success">
+                              Customer Reserve Life Plan
+                            </h3>
 
-            <div class="row">
-              <div class="col-xl-3 col-md-6">
-                <a class="text-decoration-none" href="#">
-                  <div class="card bg-success text-white mb-4">
-                    <div class="card-body">
-                      <p class="fw-bold text-center">Total Customers</p>
-                      <div class="d-flex align-items-center gap-4">
-                        <i class="fa-solid fa-users icon-size"></i>
-                        <h1 class="text-center fs-1" id="totalCustomersCount">
-                          0
-                        </h1>
+                            <div class="mb-4 pb-2">
+                              <select class="select">
+                                <option value="1">Title</option>
+                                <option value="2">Two</option>
+                                <option value="3">Three</option>
+                                <option value="4">Four</option>
+                              </select>
+                            </div>
+
+                            <div class="row">
+                              <div class="col-md-6 mb-4 pb-2">
+                                <div class="form-outline">
+                                  <input
+                                    type="text"
+                                    id="form3Examplev2"
+                                    class="form-control form-control-lg"
+                                  />
+                                  <label class="form-label" for="form3Examplev2"
+                                    >First name</label
+                                  >
+                                </div>
+                              </div>
+                              <div class="col-md-6 mb-4 pb-2">
+                                <div class="form-outline">
+                                  <input
+                                    type="text"
+                                    id="form3Examplev3"
+                                    class="form-control form-control-lg"
+                                  />
+                                  <label class="form-label" for="form3Examplev3"
+                                    >Last name</label
+                                  >
+                                </div>
+                              </div>
+                            </div>
+
+                            <div class="mb-4 pb-2">
+                              <select class="select">
+                                <option value="1">Position</option>
+                                <option value="2">Two</option>
+                                <option value="3">Three</option>
+                                <option value="4">Four</option>
+                              </select>
+                            </div>
+
+                            <div class="mb-4 pb-2">
+                              <div class="form-outline">
+                                <input
+                                  type="text"
+                                  id="form3Examplev4"
+                                  class="form-control form-control-lg"
+                                />
+                                <label class="form-label" for="form3Examplev4"
+                                  >Position</label
+                                >
+                              </div>
+                            </div>
+
+                            <div class="row">
+                              <div class="col-md-6 mb-4 pb-2 mb-md-0 pb-md-0">
+                                <div class="form-outline">
+                                  <input
+                                    type="text"
+                                    id="form3Examplev5"
+                                    class="form-control form-control-lg"
+                                  />
+                                  <label class="form-label" for="form3Examplev5"
+                                    >Bussines Arena</label
+                                  >
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <select class="select">
+                                  <option value="1">Employees</option>
+                                  <option value="2">Two</option>
+                                  <option value="3">Three</option>
+                                  <option value="4">Four</option>
+                                </select>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-lg-6 bg-success text-white">
+                          <div class="p-5">
+                            <h3 class="fw-normal mb-5">Customer Information</h3>
+
+                            <div class="row">
+                              <div class="col-md-6 mb-4 pb-2">
+                                <div class="form-outline">
+                                  <input
+                                    type="text"
+                                    id="customer_last_name"
+                                    class="form-control form-control-lg"
+                                  />
+                                  <label
+                                    class="form-label"
+                                    for="customer_last_name"
+                                    >Last name</label
+                                  >
+                                </div>
+                              </div>
+                              <div class="col-md-6 mb-4 pb-2">
+                                <div class="form-outline">
+                                  <input
+                                    type="text"
+                                    id="customer_first_name"
+                                    class="form-control form-control-lg"
+                                  />
+                                  <label
+                                    class="form-label"
+                                    for="customer_first_name"
+                                    >First name</label
+                                  >
+                                </div>
+                              </div>
+                            </div>
+
+                            <div class="mb-4 pb-2">
+                              <div class="form-outline form-white">
+                                <input
+                                  type="text"
+                                  id="customer_address"
+                                  class="form-control form-control-lg"
+                                />
+                                <label class="form-label" for="customer_address"
+                                  >Address</label
+                                >
+                              </div>
+                            </div>
+
+                            <div class="row">
+                              <div class="col-md-6 mb-4 pb-2">
+                                <div class="form-outline form-white">
+                                  <input
+                                    type="text"
+                                    id="customer_age"
+                                    class="form-control form-control-lg text-muted"
+                                    readonly
+                                    value=""
+                                  />
+                                  <label class="form-label" for="customer_age"
+                                    >Age</label
+                                  >
+                                </div>
+                              </div>
+                              <div class="col-md-6 mb-4 pb-2">
+                                <div class="form-outline form-white" style="outline: none; box-shadow: none;">
+                                  <select
+                                    id="customer_gender"
+                                    class="form-select form-select-lg"
+                                  >
+                                    <option value="" disabled selected>
+                                      ...
+                                    </option>
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                    <option value="Prefer Not To Say">
+                                      Not Prefer to Say
+                                    </option>
+                                  </select>
+                                  <label
+                                    class="form-label"
+                                    for="customer_gender"
+                                    >Gender</label
+                                  >
+                                </div>
+                              </div>
+                            </div>
+
+                            <div class="row">
+                              <div class="col-md-6 mb-4 pb-2">
+                                <div class="form-outline form-white">
+                                  <input
+                                    type="date"
+                                    id="customer_birthdate"
+                                    class="form-control form-control-lg"
+                                  />
+                                  <label class="form-label" for="customer_birthdate"
+                                    >Birth Date</label
+                                  >
+                                </div>
+                              </div>
+
+                              <div class="col-md-6 mb-4 pb-2">
+                                <div class="form-outline form-white">
+                                  <input
+                                    type="date"
+                                    id="customer_birthdate"
+                                    class="form-control form-control-lg"
+                                  />
+                                  <label class="form-label" for="customer_birthdate"
+                                    >Death Date <em class="fs-6">*(if the customer already dead)</em></label
+                                  >
+                                </div>
+                              </div>
+                            </div>
+
+                            <button
+                              type="button"
+                              class="btn btn-light btn-lg"
+                              data-mdb-ripple-color="dark"
+                            >
+                              Register
+                            </button>
+                          </div>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                </a>
-              </div>
-              <div class="col-xl-3 col-md-6">
-                <a class="text-decoration-none" href="#">
-                  <div class="card bg-danger text-white mb-4">
-                    <div class="card-body">
-                      <p class="fw-bold text-center">
-                        Number of Customers Died
-                      </p>
-                      <div class="d-flex align-items-center gap-4">
-                        <i class="fas fa-skull icon-size"></i>
-                        <h1 class="text-center fs-1" id="numberOfCustomersDied">
-                          0
-                        </h1>
-                      </div>
-                    </div>
-                  </div>
-                </a>
-              </div>
-              <div class="col-xl-3 col-md-6">
-                <a class="text-decoration-none" href="new-customer.html">
-                  <div class="card bg-success text-white mb-4">
-                    <div class="card-body">
-                      <p class="fw-bold text-center">Add Customer</p>
-                      <div
-                        class="d-flex justify-content-center align-items-center"
-                      >
-                        <i class="fas fa-user-plus icon-size"></i>
-                      </div>
-                    </div>
-                  </div>
-                </a>
-              </div>
-            </div>
-
-            <div class="card mb-4">
-              <div class="card-header bg-success text-white">
-                <i class="fas fa-users me-1"></i>
-                All Customers
-              </div>
-              <div class="card-body">
-                <table id="datatablesSimple">
-                  <thead>
-                    <tr>
-                      <th>Customer ID</th>
-                      <th>Last Name</th>
-                      <th>First Name</th>
-                      <th>Address</th>
-                      <th>Age</th>
-                      <th>Gender</th>
-                      <th>Birth Date</th>
-                      <th>Death Date</th>
-                      <th>Update</th>
-                      <th>Delete</th>
-                    </tr>
-                  </thead>
-                  <tbody id="tbody">
-                    <!-- Your data rows will go here -->
-                  </tbody>
-                </table>
-              </div>
-            </div>
-            <!--Update Customer Modal -->
-            <div
-              class="modal fade"
-              id="updateCustomer"
-              tabindex="-1"
-              aria-labelledby="updateCustomerLabel"
-              aria-hidden="true"
-            >
-              <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h1
-                      class="modal-title fs-5 text-white"
-                      id="updateCustomerLabel"
-                    >
-                      Update Customer Details
-                    </h1>
-                    <button
-                      type="button"
-                      class="btn-close"
-                      data-bs-dismiss="modal"
-                      aria-label="Close"
-                    ></button>
-                  </div>
-                  <div class="modal-body">
-                    <form action="" id="updateCustomerForm">
-                      <input
-                          type="text"
-                          id="updateModalCustomersID"
-                          class="form-control form-control-lg border-input text-color d-none"
-                          aria-label="Customer ID"
-                          aria-describedby="updateModalCustomerID-icon"
-                          autocomplete="off"
-                        />
-                      <label
-                        class="form-label text-color"
-                        for="updateModalLastName"
-                        >Last Name</label
-                      >
-                      <div class="input-group mb-4">
-                        <span
-                          class="input-group-text border-input bg-transparent"
-                          id="updateModalLastName-icon"
-                        >
-                          <i class="fas fa-user text-color"></i>
-                        </span>
-                        <input
-                          type="text"
-                          id="updateModalLastName"
-                          class="form-control form-control-lg border-input text-color"
-                          aria-label="Customer Lastname"
-                          aria-describedby="updateModalLastName-icon"
-                          autocomplete="off"
-                        />
-                      </div>
-
-                      <label
-                        class="form-label text-color"
-                        for="customerFirstName"
-                        >First Name</label
-                      >
-                      <div class="input-group mb-4">
-                        <span
-                          class="input-group-text border-input bg-transparent"
-                          id="customerFirstName-icon"
-                        >
-                          <i class="fas fa-user text-color"></i>
-                        </span>
-                        <input
-                          type="text"
-                          id="customerFirstName"
-                          class="form-control form-control-lg border-input text-color"
-                          aria-label="Customer Firstname"
-                          aria-describedby="customerFirstName-icon"
-                          autocomplete="off"
-                        />
-                      </div>
-
-                      <label class="form-label text-color" for="customerAddress"
-                        >Address</label
-                      >
-                      <div class="input-group mb-4">
-                        <span
-                          class="input-group-text border-input bg-transparent"
-                          id="address-icon"
-                        >
-                          <i class="fas fa-address-book"></i>
-                        </span>
-                        <input
-                          type="text"
-                          id="customerAddress"
-                          class="form-control form-control-lg border-input text-color"
-                          aria-label="Customer Address"
-                          aria-describedby="address-icon"
-                          autocomplete="off"
-                        />
-                      </div>
-
-                      <label class="form-label text-color" for="customerAge"
-                        >Age</label
-                      >
-                      <div class="input-group mb-4">
-                        <span
-                          class="input-group-text border-input bg-transparent"
-                          id="age-icon"
-                        >
-                          <i class="fa fa-child-reaching"></i>
-                        </span>
-                        <input
-                          type="text"
-                          id="customerAge"
-                          class="form-control form-control-lg border-input text-color text-muted"
-                          aria-label="Customer Age"
-                          aria-describedby="age-icon"
-                          autocomplete="off"
-                          readonly
-                        />
-                      </div>
-
-                      <label class="form-label text-color" for="customerGender"
-                        >Gender</label
-                      >
-                      <div class="input-group mb-4">
-                        <span
-                          class="input-group-text border-input bg-transparent"
-                          id="gender-icon"
-                        >
-                          <i class="fa-solid fa-venus-mars"></i>
-                        </span>
-                        <select
-                          id="customerGender"
-                          class="form-control form-control-lg border-input text-color"
-                          aria-label="Customer Gender"
-                          aria-describedby="gender-icon"
-                        >
-                          <option value="" selected></option>
-                        </select>
-                      </div>
-
-                      <label class="form-label text-color" for="customerBirth"
-                        >Birth Date</label
-                      >
-                      <div class="input-group mb-4">
-                        <span
-                          class="input-group-text border-input bg-transparent"
-                          id="birth-icon"
-                        >
-                          <i class="fa fa-cake-candles"></i>
-                        </span>
-                        <input
-                          type="date"
-                          id="customerBirth"
-                          class="form-control form-control-lg border-input text-color"
-                          aria-label="Customer Birth"
-                          aria-describedby="birth-icon"
-                          autocomplete="off"
-                        />
-                      </div>
-
-                      <label class="form-label text-color" for="customerDeath"
-                        >Death Date
-                        <em class="text-danger"
-                          >*( if customer already dead )</em
-                        ></label
-                      >
-                      <div class="input-group mb-4">
-                        <span
-                          class="input-group-text border-input bg-transparent"
-                          id="death-icon"
-                        >
-                          <i class="fa fa-book-skull"></i>
-                        </span>
-                        <input
-                          type="date"
-                          id="customerDeath"
-                          class="form-control form-control-lg border-input text-color"
-                          aria-label="Customer Death"
-                          aria-describedby="death-icon"
-                          autocomplete="off"
-                        />
-                      </div>
-
-                      <label
-                        class="form-label text-color"
-                        for="customerEmployee"
-                        >Employee ID</label
-                      >
-                      <div class="input-group mb-4">
-                        <span
-                          class="input-group-text border-input bg-transparent"
-                          id="employee-icon"
-                        >
-                          <i class="fa fa-user-tie"></i>
-                        </span>
-                        <input
-                          type="text"
-                          id="customerEmployee"
-                          class="form-control form-control-lg border-input text-color"
-                          aria-label="Customer Employee"
-                          aria-describedby="employee-icon"
-                          autocomplete="off"
-                        />
-                      </div>
-
-                      <div
-                        class="d-flex justify-content-center align-items-center"
-                      >
-                        <button
-                          class="btn btn-success btn-lg btn-block"
-                          type="submit"
-                        >
-                          Save Changes
-                        </button>
-                      </div>
-                    </form>
                   </div>
                 </div>
               </div>
@@ -565,12 +498,17 @@
     <script></script>
     <script src="assets/js/bootstrap.bundle.min.js"></script>
     <script src="js/scripts.js"></script>
-    <script
-      defer
-      src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js"
-      crossorigin="anonymous"
-    ></script>
-    <script src="js/datatables-simple-demo.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $("#customer_gender").on("keydown", function (e) {
+          if (e.keyCode == 8 || e.keyCode == 46) {
+            // Check for backspace (8) or delete (46) key
+            $(this).val(""); // Clear the selection
+          }
+        });
+      });
+    </script>
 
     <!--original script for logout-->
     <script type="text/javascript" src="js/auth/employee_logout.js"></script>
@@ -804,7 +742,9 @@
           e.preventDefault(); // Prevent the default form submission
 
           // Get the values from the form fields
-          const customer_id = document.getElementById("updateModalCustomersID").value;
+          const customer_id = document.getElementById(
+            "updateModalCustomersID"
+          ).value;
           const lastName = document.getElementById("updateModalLastName").value;
           const firstName = document.getElementById("customerFirstName").value;
           const address = document.getElementById("customerAddress").value;
@@ -836,11 +776,11 @@
         const backendURL = "http://saintpeter-backend.test/api";
         const token = localStorage.getItem("employee_token");
 
-        fetch(`${backendURL}/customers/${customer_id}`,{
+        fetch(`${backendURL}/customers/${customer_id}`, {
           method: "PUT",
-          headers:{
+          headers: {
             "Content-Type": "application/json",
-                "Authorization": `Bearer ${token}`,
+            Authorization: `Bearer ${token}`,
           },
           body: JSON.stringify(updatedData),
         })
@@ -853,7 +793,7 @@
           .then((updatedCustomerData) => {
             // Handle the updated data as needed
             console.log("Customer data updated:", updatedCustomerData);
-            window.location.reload(); 
+            window.location.reload();
           })
           .catch((error) => {
             console.error("Error updating customer data:", error);
@@ -871,7 +811,7 @@
             console.log("customer id:", customerId);
             const backendURL = "http://saintpeter-backend.test/api";
             const token = localStorage.getItem("employee_token");
-    
+
             // Fetch the customer data based on the customerId
             fetch(`${backendURL}/customers/${customerId}`, {
               method: "DELETE",
@@ -889,7 +829,7 @@
               .then((data) => {
                 console.log("Delete successful");
                 console.log("Deleted customer:", data);
-                window.location.reload()
+                window.location.reload();
               })
               .catch((error) => {
                 console.error("Error deleting customer:", error);
@@ -898,7 +838,5 @@
         });
       });
     </script>
-    
-    
   </body>
 </html>
