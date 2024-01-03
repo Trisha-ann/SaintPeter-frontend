@@ -245,7 +245,7 @@
               </a>
             </div>
           </div>
-          <div class="sb-sidenav-footer text-white">
+          <div class="sb-sidenav-footer text-white fixed-bottom">
             <div class="small">Logged in as:</div>
             <div class="small" id="employee_name"></div>
           </div>
@@ -571,6 +571,36 @@
       crossorigin="anonymous"
     ></script>
     <script src="js/datatables-simple-demo.js"></script>
+
+    <!-- script for age base on the birthday and current year, month, day -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        var birthdateInput = document.getElementById("customerBirth");
+        var ageInput = document.getElementById("customerAge");
+
+        birthdateInput.addEventListener("input", function () {
+          var birthdate = new Date(this.value);
+          var currentDate = new Date();
+          var age = currentDate.getFullYear() - birthdate.getFullYear();
+
+          // Check if birthday has occurred this year
+          if (
+            currentDate.getMonth() < birthdate.getMonth() ||
+            (currentDate.getMonth() === birthdate.getMonth() &&
+              currentDate.getDate() < birthdate.getDate())
+          ) {
+            age--;
+          }
+
+          // Set the calculated age to the age input field
+          if (isNaN(age)) {
+            ageInput.value = "";
+          } else {
+            ageInput.value = age;
+          }
+        });
+      });
+    </script>
 
     <!--original script for logout-->
     <script type="text/javascript" src="js/auth/employee_logout.js"></script>

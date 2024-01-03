@@ -9,7 +9,7 @@
     />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>Dashboard - Employee</title>
+    <title>Add Customer</title>
     <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
     <link
       href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css"
@@ -245,7 +245,7 @@
               </a>
             </div>
           </div>
-          <div class="sb-sidenav-footer text-white">
+          <div class="sb-sidenav-footer text-white fixed-bottom">
             <div class="small">Logged in as:</div>
             <div class="small" id="employee_name"></div>
           </div>
@@ -418,7 +418,10 @@
                                 </div>
                               </div>
                               <div class="col-md-6 mb-4 pb-2">
-                                <div class="form-outline form-white" style="outline: none; box-shadow: none;">
+                                <div
+                                  class="form-outline form-white"
+                                  style="outline: none; box-shadow: none"
+                                >
                                   <select
                                     id="customer_gender"
                                     class="form-select form-select-lg"
@@ -449,7 +452,9 @@
                                     id="customer_birthdate"
                                     class="form-control form-control-lg"
                                   />
-                                  <label class="form-label" for="customer_birthdate"
+                                  <label
+                                    class="form-label"
+                                    for="customer_birthdate"
                                     >Birth Date</label
                                   >
                                 </div>
@@ -462,8 +467,13 @@
                                     id="customer_birthdate"
                                     class="form-control form-control-lg"
                                   />
-                                  <label class="form-label" for="customer_birthdate"
-                                    >Death Date <em class="fs-6">*(if the customer already dead)</em></label
+                                  <label
+                                    class="form-label"
+                                    for="customer_birthdate"
+                                    >Death Date
+                                    <em class="fs-6"
+                                      >*(if the customer already dead)</em
+                                    ></label
                                   >
                                 </div>
                               </div>
@@ -471,10 +481,10 @@
 
                             <button
                               type="button"
-                              class="btn btn-light btn-lg"
+                              class="btn btn-light btn-lg text-success"
                               data-mdb-ripple-color="dark"
                             >
-                              Register
+                              Next
                             </button>
                           </div>
                         </div>
@@ -529,314 +539,140 @@
         }
       });
     </script>
+
+<!-- script for age base on birthday and current year, month, day -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        var birthdateInput = document.getElementById("customer_birthdate");
+        var ageInput = document.getElementById("customer_age");
+
+        birthdateInput.addEventListener("input", function () {
+          var birthdate = new Date(this.value);
+          var currentDate = new Date();
+          var age = currentDate.getFullYear() - birthdate.getFullYear();
+
+          // Check if birthday has occurred this year
+          if (
+            currentDate.getMonth() < birthdate.getMonth() ||
+            (currentDate.getMonth() === birthdate.getMonth() &&
+              currentDate.getDate() < birthdate.getDate())
+          ) {
+            age--;
+          }
+
+          // Set the calculated age to the age input field
+          if (isNaN(age)) {
+            ageInput.value = "";
+          } else {
+            ageInput.value = age;
+          }
+        });
+      });
+    </script>
+
     <!--script for showing the new password-->
     <script>
-      document
-        .getElementById("showpassword-icon")
-        .addEventListener("click", function () {
-          var passwordField = document.getElementById("employeePassword");
-          var lockIcon = document.getElementById("lock");
-          var unlockIcon = document.getElementById("unlock");
-
-          if (passwordField.type === "password") {
-            passwordField.type = "text";
-            unlockIcon.classList.remove("d-none");
-            lockIcon.classList.add("d-none");
-          } else {
-            passwordField.type = "password";
-            unlockIcon.classList.add("d-none");
-            lockIcon.classList.remove("d-none");
-          }
-        });
-    </script>
-
-    <!--script for showing the confirm password-->
-    <script>
-      document
-        .getElementById("confirmpassword-icon")
-        .addEventListener("click", function () {
-          var passwordField = document.getElementById(
-            "employeeConfirmPassword"
-          );
-          var lockIcon = document.getElementById("confirm_lock");
-          var unlockIcon = document.getElementById("confirm_unlock");
-
-          if (passwordField.type === "password") {
-            passwordField.type = "text";
-            unlockIcon.classList.remove("d-none");
-            lockIcon.classList.add("d-none");
-          } else {
-            passwordField.type = "password";
-            unlockIcon.classList.add("d-none");
-            lockIcon.classList.remove("d-none");
-          }
-        });
-    </script>
-
-    <!--script for updating the password-->
-    <script>
-      document
-        .getElementById("employee_changePassword") // Updated to match the button ID
-        .addEventListener("submit", function (event) {
-          event.preventDefault();
-
-          var newPassword = document.getElementById("employeePassword").value;
-          var confirmPassword = document.getElementById(
-            "employeeConfirmPassword"
-          ).value;
-          var passwordError = document.getElementById("passwordError");
-          var passwordSuccess = document.getElementById("passwordSuccess");
-
-          if (newPassword !== confirmPassword) {
-            // Passwords do not match, display error message
-            passwordError.classList.remove("d-none");
-            passwordSuccess.classList.add("d-none");
-          } else {
-            // Passwords match, proceed with your logic
-            passwordError.classList.add("d-none");
-
-            const backendURL = "http://saintpeter-backend.test/api";
-            const employee_id = localStorage.getItem("employee_id");
-            const token = localStorage.getItem("employee_token");
-
-            // Fetch API to send the password change request
-            fetch(`${backendURL}/employee/${employee_id}`, {
-              method: "PUT",
-              headers: {
-                "Content-Type": "application/json",
-                Authorization: `Bearer ${token}`,
-              },
-              body: JSON.stringify({
-                password: confirmPassword,
-              }),
-            })
-              .then((response) => {
-                if (!response.ok) {
-                  throw new Error("Password update failed");
-                }
-                return response.json();
-              })
-              .then((data) => {
-                // Handle success
-                console.log("Password updated successfully", data);
-
-                // Clear input fields
-                document.getElementById("employeePassword").value = "";
-                document.getElementById("employeeConfirmPassword").value = "";
-                passwordSuccess.classList.remove("d-none");
-              })
-              .catch((error) => {
-                // Handle error
-                console.error("Error updating password:", error.message);
-                // Display an error message to the user or handle it accordingly
-              });
-          }
-        });
-    </script>
-
-    <!-- script for showing a specific customer -->
-    <script>
-      window.addEventListener("DOMContentLoaded", (event) => {
-        // Add event listener for the "Update" button clicks
-        document.addEventListener("click", (e) => {
-          if (e.target.classList.contains("update-btn")) {
-            const customerId = e.target.getAttribute("data-customer-id");
-            // Fetch the specific customer data using customerId and populate the update modal
-            fetchCustomerDataAndUpdateModal(customerId);
-          }
-        });
-      });
-
-      // Add event listener for the modal's "hidden" event
-      const updateModal = document.getElementById("updateCustomer");
-      updateModal.addEventListener("hidden.bs.modal", () => {
-        // Clear input fields when the modal is hidden
-        document.getElementById("updateModalCustomersID").value = "";
-        document.getElementById("updateModalLastName").value = "";
-        document.getElementById("customerFirstName").value = "";
-        document.getElementById("customerAddress").value = "";
-        document.getElementById("customerAge").value = "";
-        document.getElementById("customerGender").value = ""; // clear the selected option
-        document.getElementById("customerBirth").value = "";
-        document.getElementById("customerDeath").value = "";
-        document.getElementById("customerEmployee").value = "";
-      });
-
-      // Function to fetch customer data and populate the update modal
-      function fetchCustomerDataAndUpdateModal(customerId) {
-        const backendURL = "http://saintpeter-backend.test/api";
-        const token = localStorage.getItem("employee_token");
-
-        // Fetch the customer data based on the customerId
-        fetch(`${backendURL}/customers/${customerId}`, {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`,
-          },
-        })
-          .then((response) => {
-            if (!response.ok) {
-              throw new Error(`HTTP error! Status: ${response.status}`);
+        document
+          .getElementById("showpassword-icon")
+          .addEventListener("click", function () {
+            var passwordField = document.getElementById("employeePassword");
+            var lockIcon = document.getElementById("lock");
+            var unlockIcon = document.getElementById("unlock");
+  
+            if (passwordField.type === "password") {
+              passwordField.type = "text";
+              unlockIcon.classList.remove("d-none");
+              lockIcon.classList.add("d-none");
+            } else {
+              passwordField.type = "password";
+              unlockIcon.classList.add("d-none");
+              lockIcon.classList.remove("d-none");
             }
-            return response.json();
-          })
-          .then((customerData) => {
-            // Populate the update modal with the retrieved data
-            populateUpdateModal(customerData);
-          })
-          .catch((error) => {
-            console.error("Error fetching customer data:", error);
           });
-      }
-
-      // Function to populate the update modal with customer data
-      function populateUpdateModal(customerData) {
-        // Assuming you have elements in your modal with specific IDs to display customer data
-        document.getElementById("updateModalCustomersID").value =
-          customerData.customers_id;
-        document.getElementById("updateModalLastName").value =
-          customerData.last_name;
-        document.getElementById("customerFirstName").value =
-          customerData.first_name;
-        document.getElementById("customerAddress").value = customerData.address;
-        document.getElementById("customerAge").value = customerData.age;
-        // Populate the gender select element based on the customer's gender
-        const genderSelect = document.getElementById("customerGender");
-        // Clear existing options
-        genderSelect.innerHTML = "";
-        // Define gender options based on the fetched data
-        const genderOptions = [
-          { value: "Male", label: "Male" },
-          { value: "Female", label: "Female" },
-          { value: "Prefer Not To Say", label: "Not Prefer to Say" },
-        ];
-
-        // Populate options and select the appropriate one
-        genderOptions.forEach((option) => {
-          const optionElement = document.createElement("option");
-          optionElement.value = option.value;
-          optionElement.text = option.label;
-          genderSelect.add(optionElement);
-
-          if (customerData.gender === option.value) {
-            optionElement.selected = true;
-          }
-        });
-        document.getElementById("customerBirth").value =
-          customerData.birth_date;
-        document.getElementById("customerDeath").value =
-          customerData.death_date;
-        document.getElementById("customerEmployee").value =
-          customerData.employee_id;
-      }
-    </script>
-
-    <!-- script for update customer -->
-    <script>
-      document.addEventListener("DOMContentLoaded", (event) => {
-        const updateCustomerForm =
-          document.getElementById("updateCustomerForm");
-
-        updateCustomerForm.addEventListener("submit", (e) => {
-          e.preventDefault(); // Prevent the default form submission
-
-          // Get the values from the form fields
-          const customer_id = document.getElementById(
-            "updateModalCustomersID"
-          ).value;
-          const lastName = document.getElementById("updateModalLastName").value;
-          const firstName = document.getElementById("customerFirstName").value;
-          const address = document.getElementById("customerAddress").value;
-          const age = document.getElementById("customerAge").value;
-          const gender = document.getElementById("customerGender").value;
-          const birthDate = document.getElementById("customerBirth").value;
-          const deathDate = document.getElementById("customerDeath").value;
-          const employeeId = document.getElementById("customerEmployee").value;
-
-          // Prepare the data for the update
-          const updatedData = {
-            customers_id: customer_id,
-            last_name: lastName,
-            first_name: firstName,
-            address: address,
-            age: age,
-            gender: gender,
-            birth_date: birthDate,
-            death_date: deathDate,
-            employee_id: employeeId,
-          };
-
-          // Call the updateCustomerData function with the customer ID and updated data
-          updateCustomerData(updatedData, customer_id);
-        });
-      });
-
-      function updateCustomerData(updatedData, customer_id) {
-        const backendURL = "http://saintpeter-backend.test/api";
-        const token = localStorage.getItem("employee_token");
-
-        fetch(`${backendURL}/customers/${customer_id}`, {
-          method: "PUT",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`,
-          },
-          body: JSON.stringify(updatedData),
-        })
-          .then((response) => {
-            if (!response.ok) {
-              throw new Error(`HTTP error! Status: ${response.status}`);
+      </script>
+  
+      <!--script for showing the confirm password-->
+      <script>
+        document
+          .getElementById("confirmpassword-icon")
+          .addEventListener("click", function () {
+            var passwordField = document.getElementById(
+              "employeeConfirmPassword"
+            );
+            var lockIcon = document.getElementById("confirm_lock");
+            var unlockIcon = document.getElementById("confirm_unlock");
+  
+            if (passwordField.type === "password") {
+              passwordField.type = "text";
+              unlockIcon.classList.remove("d-none");
+              lockIcon.classList.add("d-none");
+            } else {
+              passwordField.type = "password";
+              unlockIcon.classList.add("d-none");
+              lockIcon.classList.remove("d-none");
             }
-            return response.json();
-          })
-          .then((updatedCustomerData) => {
-            // Handle the updated data as needed
-            console.log("Customer data updated:", updatedCustomerData);
-            window.location.reload();
-          })
-          .catch((error) => {
-            console.error("Error updating customer data:", error);
           });
-      }
-    </script>
-
-    <!-- script for delete customer -->
-    <script>
-      window.addEventListener("DOMContentLoaded", (event) => {
-        // Add event listener for the "Delete" button clicks
-        document.addEventListener("click", (e) => {
-          if (e.target.classList.contains("delete-btn")) {
-            const customerId = e.target.getAttribute("data-customer-id");
-            console.log("customer id:", customerId);
-            const backendURL = "http://saintpeter-backend.test/api";
-            const token = localStorage.getItem("employee_token");
-
-            // Fetch the customer data based on the customerId
-            fetch(`${backendURL}/customers/${customerId}`, {
-              method: "DELETE",
-              headers: {
-                "Content-Type": "application/json",
-                Authorization: `Bearer ${token}`,
-              },
-            })
-              .then((response) => {
-                if (!response.ok) {
-                  throw new Error(`HTTP error! Status: ${response.status}`);
-                }
-                return response.json();
+      </script>
+  
+      <!--script for updating the password-->
+      <script>
+        document
+          .getElementById("employee_changePassword") // Updated to match the button ID
+          .addEventListener("submit", function (event) {
+            event.preventDefault();
+  
+            var newPassword = document.getElementById("employeePassword").value;
+            var confirmPassword = document.getElementById(
+              "employeeConfirmPassword"
+            ).value;
+            var passwordError = document.getElementById("passwordError");
+            var passwordSuccess = document.getElementById("passwordSuccess");
+  
+            if (newPassword !== confirmPassword) {
+              // Passwords do not match, display error message
+              passwordError.classList.remove("d-none");
+              passwordSuccess.classList.add("d-none");
+            } else {
+              // Passwords match, proceed with your logic
+              passwordError.classList.add("d-none");
+  
+              const backendURL = "http://saintpeter-backend.test/api";
+              const employee_id = localStorage.getItem("employee_id");
+              const token = localStorage.getItem("employee_token");
+  
+              // Fetch API to send the password change request
+              fetch(`${backendURL}/employee/${employee_id}`, {
+                method: "PUT",
+                headers: {
+                  "Content-Type": "application/json",
+                  Authorization: `Bearer ${token}`,
+                },
+                body: JSON.stringify({
+                  password: confirmPassword,
+                }),
               })
-              .then((data) => {
-                console.log("Delete successful");
-                console.log("Deleted customer:", data);
-                window.location.reload();
-              })
-              .catch((error) => {
-                console.error("Error deleting customer:", error);
-              });
-          }
-        });
-      });
-    </script>
+                .then((response) => {
+                  if (!response.ok) {
+                    throw new Error("Password update failed");
+                  }
+                  return response.json();
+                })
+                .then((data) => {
+                  // Handle success
+                  console.log("Password updated successfully", data);
+  
+                  // Clear input fields
+                  document.getElementById("employeePassword").value = "";
+                  document.getElementById("employeeConfirmPassword").value = "";
+                  passwordSuccess.classList.remove("d-none");
+                })
+                .catch((error) => {
+                  // Handle error
+                  console.error("Error updating password:", error.message);
+                  // Display an error message to the user or handle it accordingly
+                });
+            }
+          });
+      </script>
   </body>
 </html>
