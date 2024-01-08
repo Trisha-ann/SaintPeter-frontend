@@ -273,83 +273,37 @@
                             </h3>
 
                             <div class="mb-4 pb-2">
-                              <select class="select">
-                                <option value="1">Title</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
-                                <option value="4">Four</option>
-                              </select>
-                            </div>
-
-                            <div class="row">
-                              <div class="col-md-6 mb-4 pb-2">
-                                <div class="form-outline">
-                                  <input
-                                    type="text"
-                                    id="form3Examplev2"
-                                    class="form-control form-control-lg"
-                                  />
-                                  <label class="form-label" for="form3Examplev2"
-                                    >First name</label
-                                  >
-                                </div>
-                              </div>
-                              <div class="col-md-6 mb-4 pb-2">
-                                <div class="form-outline">
-                                  <input
-                                    type="text"
-                                    id="form3Examplev3"
-                                    class="form-control form-control-lg"
-                                  />
-                                  <label class="form-label" for="form3Examplev3"
-                                    >Last name</label
-                                  >
-                                </div>
-                              </div>
-                            </div>
-
-                            <div class="mb-4 pb-2">
-                              <select class="select">
-                                <option value="1">Position</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
-                                <option value="4">Four</option>
-                              </select>
-                            </div>
-
-                            <div class="mb-4 pb-2">
-                              <div class="form-outline">
-                                <input
-                                  type="text"
-                                  id="form3Examplev4"
-                                  class="form-control form-control-lg"
-                                />
-                                <label class="form-label" for="form3Examplev4"
-                                  >Position</label
+                              <div
+                                id="myCarousel"
+                                class="carousel slide"
+                                data-bs-ride="false"
+                                data-bs-touch="true"
+                              >
+                                <div class="carousel-inner"></div>
+                                <button
+                                  class="carousel-control-prev"
+                                  type="button"
+                                  data-bs-target="#myCarousel"
+                                  data-bs-slide="prev"
                                 >
-                              </div>
-                            </div>
-
-                            <div class="row">
-                              <div class="col-md-6 mb-4 pb-2 mb-md-0 pb-md-0">
-                                <div class="form-outline">
-                                  <input
-                                    type="text"
-                                    id="form3Examplev5"
-                                    class="form-control form-control-lg"
-                                  />
-                                  <label class="form-label" for="form3Examplev5"
-                                    >Bussines Arena</label
-                                  >
-                                </div>
-                              </div>
-                              <div class="col-md-6">
-                                <select class="select">
-                                  <option value="1">Employees</option>
-                                  <option value="2">Two</option>
-                                  <option value="3">Three</option>
-                                  <option value="4">Four</option>
-                                </select>
+                                  <span
+                                    class="carousel-control-prev-icon"
+                                    aria-hidden="true"
+                                  ></span>
+                                  <span class="visually-hidden">Previous</span>
+                                </button>
+                                <button
+                                  class="carousel-control-next"
+                                  type="button"
+                                  data-bs-target="#myCarousel"
+                                  data-bs-slide="next"
+                                >
+                                  <span
+                                    class="carousel-control-next-icon"
+                                    aria-hidden="true"
+                                  ></span>
+                                  <span class="visually-hidden">Next</span>
+                                </button>
                               </div>
                             </div>
                           </div>
@@ -479,6 +433,23 @@
                               </div>
                             </div>
 
+                            <div class="row">
+                              <div class="col-md-6 mb-4 pb-2">
+                                <div class="form-outline form-white">
+                                  <input
+                                    type="text"
+                                    id="plan_price"
+                                    class="form-control form-control-lg text-muted"
+                                    readonly
+                                    value="₱"
+                                  />
+                                  <label class="form-label" for="plan_price"
+                                    >Plan Purchased</label
+                                  >
+                                </div>
+                              </div>
+                            </div>
+
                             <button
                               type="button"
                               class="btn btn-light btn-lg text-success"
@@ -494,6 +465,50 @@
                 </div>
               </div>
             </div>
+
+            <!-- Modal -->
+<div class="modal fade" id="viewServices" tabindex="-1" aria-labelledby="viewServicesLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5 text-white" id="viewServicesLabel"></h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body mx-auto">
+        <div class="card mb-3" style="width: 18rem;">
+          <img src="" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+          </div>
+        </div>
+
+        <div class="card mb-3" style="width: 18rem;">
+          <img src="" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+          </div>
+        </div>
+
+        <div class="card" style="width: 18rem;">
+          <img src="" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
           </div>
         </main>
         <footer class="py-4 bg-light mt-auto">
@@ -540,7 +555,7 @@
       });
     </script>
 
-<!-- script for age base on birthday and current year, month, day -->
+    <!-- script for age base on birthday and current year, month, day -->
     <script>
       document.addEventListener("DOMContentLoaded", function () {
         var birthdateInput = document.getElementById("customer_birthdate");
@@ -572,107 +587,228 @@
 
     <!--script for showing the new password-->
     <script>
-        document
-          .getElementById("showpassword-icon")
-          .addEventListener("click", function () {
-            var passwordField = document.getElementById("employeePassword");
-            var lockIcon = document.getElementById("lock");
-            var unlockIcon = document.getElementById("unlock");
-  
-            if (passwordField.type === "password") {
-              passwordField.type = "text";
-              unlockIcon.classList.remove("d-none");
-              lockIcon.classList.add("d-none");
-            } else {
-              passwordField.type = "password";
-              unlockIcon.classList.add("d-none");
-              lockIcon.classList.remove("d-none");
-            }
-          });
-      </script>
-  
-      <!--script for showing the confirm password-->
-      <script>
-        document
-          .getElementById("confirmpassword-icon")
-          .addEventListener("click", function () {
-            var passwordField = document.getElementById(
-              "employeeConfirmPassword"
-            );
-            var lockIcon = document.getElementById("confirm_lock");
-            var unlockIcon = document.getElementById("confirm_unlock");
-  
-            if (passwordField.type === "password") {
-              passwordField.type = "text";
-              unlockIcon.classList.remove("d-none");
-              lockIcon.classList.add("d-none");
-            } else {
-              passwordField.type = "password";
-              unlockIcon.classList.add("d-none");
-              lockIcon.classList.remove("d-none");
-            }
-          });
-      </script>
-  
-      <!--script for updating the password-->
-      <script>
-        document
-          .getElementById("employee_changePassword") // Updated to match the button ID
-          .addEventListener("submit", function (event) {
-            event.preventDefault();
-  
-            var newPassword = document.getElementById("employeePassword").value;
-            var confirmPassword = document.getElementById(
-              "employeeConfirmPassword"
-            ).value;
-            var passwordError = document.getElementById("passwordError");
-            var passwordSuccess = document.getElementById("passwordSuccess");
-  
-            if (newPassword !== confirmPassword) {
-              // Passwords do not match, display error message
-              passwordError.classList.remove("d-none");
-              passwordSuccess.classList.add("d-none");
-            } else {
-              // Passwords match, proceed with your logic
-              passwordError.classList.add("d-none");
-  
-              const backendURL = "http://saintpeter-backend.test/api";
-              const employee_id = localStorage.getItem("employee_id");
-              const token = localStorage.getItem("employee_token");
-  
-              // Fetch API to send the password change request
-              fetch(`${backendURL}/employee/${employee_id}`, {
-                method: "PUT",
-                headers: {
-                  "Content-Type": "application/json",
-                  Authorization: `Bearer ${token}`,
-                },
-                body: JSON.stringify({
-                  password: confirmPassword,
-                }),
+      document
+        .getElementById("showpassword-icon")
+        .addEventListener("click", function () {
+          var passwordField = document.getElementById("employeePassword");
+          var lockIcon = document.getElementById("lock");
+          var unlockIcon = document.getElementById("unlock");
+
+          if (passwordField.type === "password") {
+            passwordField.type = "text";
+            unlockIcon.classList.remove("d-none");
+            lockIcon.classList.add("d-none");
+          } else {
+            passwordField.type = "password";
+            unlockIcon.classList.add("d-none");
+            lockIcon.classList.remove("d-none");
+          }
+        });
+    </script>
+
+    <!--script for showing the confirm password-->
+    <script>
+      document
+        .getElementById("confirmpassword-icon")
+        .addEventListener("click", function () {
+          var passwordField = document.getElementById(
+            "employeeConfirmPassword"
+          );
+          var lockIcon = document.getElementById("confirm_lock");
+          var unlockIcon = document.getElementById("confirm_unlock");
+
+          if (passwordField.type === "password") {
+            passwordField.type = "text";
+            unlockIcon.classList.remove("d-none");
+            lockIcon.classList.add("d-none");
+          } else {
+            passwordField.type = "password";
+            unlockIcon.classList.add("d-none");
+            lockIcon.classList.remove("d-none");
+          }
+        });
+    </script>
+
+    <!--script for updating the password-->
+    <script>
+      document
+        .getElementById("employee_changePassword") // Updated to match the button ID
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+
+          var newPassword = document.getElementById("employeePassword").value;
+          var confirmPassword = document.getElementById(
+            "employeeConfirmPassword"
+          ).value;
+          var passwordError = document.getElementById("passwordError");
+          var passwordSuccess = document.getElementById("passwordSuccess");
+
+          if (newPassword !== confirmPassword) {
+            // Passwords do not match, display error message
+            passwordError.classList.remove("d-none");
+            passwordSuccess.classList.add("d-none");
+          } else {
+            // Passwords match, proceed with your logic
+            passwordError.classList.add("d-none");
+
+            const backendURL = "http://saintpeter-backend.test/api";
+            const employee_id = localStorage.getItem("employee_id");
+            const token = localStorage.getItem("employee_token");
+
+            // Fetch API to send the password change request
+            fetch(`${backendURL}/employee/${employee_id}`, {
+              method: "PUT",
+              headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${token}`,
+              },
+              body: JSON.stringify({
+                password: confirmPassword,
+              }),
+            })
+              .then((response) => {
+                if (!response.ok) {
+                  throw new Error("Password update failed");
+                }
+                return response.json();
               })
-                .then((response) => {
-                  if (!response.ok) {
-                    throw new Error("Password update failed");
-                  }
-                  return response.json();
-                })
-                .then((data) => {
-                  // Handle success
-                  console.log("Password updated successfully", data);
-  
-                  // Clear input fields
-                  document.getElementById("employeePassword").value = "";
-                  document.getElementById("employeeConfirmPassword").value = "";
-                  passwordSuccess.classList.remove("d-none");
-                })
-                .catch((error) => {
-                  // Handle error
-                  console.error("Error updating password:", error.message);
-                  // Display an error message to the user or handle it accordingly
-                });
+              .then((data) => {
+                // Handle success
+                console.log("Password updated successfully", data);
+
+                // Clear input fields
+                document.getElementById("employeePassword").value = "";
+                document.getElementById("employeeConfirmPassword").value = "";
+                passwordSuccess.classList.remove("d-none");
+              })
+              .catch((error) => {
+                // Handle error
+                console.error("Error updating password:", error.message);
+                // Display an error message to the user or handle it accordingly
+              });
+          }
+        });
+    </script>
+
+<!-- script to fetch all the plans -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const backendURL = "http://saintpeter-backend.test/api";
+        const token = localStorage.getItem("employee_token");
+
+        fetch(`${backendURL}/plans`, {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+        })
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error(`HTTP error! Status: ${response.status}`);
             }
+            return response.json(); // Parse the response as JSON
+          })
+          .then((planData) => {
+            // Get the carousel inner container
+            const carouselInner = document.querySelector(
+              "#myCarousel .carousel-inner"
+            );
+
+            // Iterate over the array and create elements for each item
+            planData.forEach((item, index) => {
+              // Create a carousel item
+              const carouselItem = document.createElement("div");
+              carouselItem.classList.add("carousel-item");
+
+              // Add 'active' class only to the first item
+              if (index === 0) {
+                carouselItem.classList.add("active");
+              }
+
+              const img = document.createElement("img");
+              img.classList.add("d-block", "w-100", "opacity-img");
+              img.src = `http://saintpeter-backend.test/storage/${item.plan_image}`;
+
+              const carouselCaption = document.createElement("div");
+              carouselCaption.classList.add("carousel-caption", "d-md-block");
+
+              //function to make the price separated by comma if it is thousand and above
+              function formatNumberWithCommas(number) {
+                return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+              }
+              carouselCaption.innerHTML = `<p class="fw-bold h5 text-center">${
+                item.plan_name
+              } - ₱${formatNumberWithCommas(item.plan_price)}</p>
+              <p class="text-center">( ${item.plan_type} )</p>
+              <div class="row">
+                <div class="col-md-6 mb-2">
+                  <button type="button" class="btn btn-outline-light rounded viewBtn" data-bs-toggle="modal" data-bs-target="#viewServices" data-plan-id="${
+                item.plan_id
+              }" data-plan-type="${item.plan_type}">View Services</button>
+                </div>  
+                <div class="col-md-6">
+                  <button type="button" class="btn btn-light rounded purchasedBtn" data-plan-price="${
+                item.plan_price
+              }">Purchased</button>
+                </div>
+              </div>`;
+
+              carouselItem.appendChild(img);
+              carouselItem.appendChild(carouselCaption);
+              // Append the carousel item to the carousel inner container
+              carouselInner.appendChild(carouselItem);
+            });
+          })
+          .catch((error) => {
+            console.error("Error fetching data:", error);
           });
-      </script>
+      });
+    </script>
+
+<!-- script to input the price into the input field -->
+    <script>
+      window.addEventListener("DOMContentLoaded", (event) => {
+        // Add event listener for the "Update" button clicks
+        document.addEventListener("click", (e) => {
+          if (e.target.classList.contains("purchasedBtn")) {
+            const planPrice = e.target.getAttribute("data-plan-price");
+
+            //function to make the price separated by comma if it is thousand and above
+            function formatNumberWithCommas(number) {
+              return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+            }
+
+            // Set the plan price to the input field
+            const planPriceInput = document.getElementById("plan_price");
+            planPriceInput.value = `₱${formatNumberWithCommas(planPrice)}`;
+
+            // Add a keydown event listener to the input field
+            planPriceInput.addEventListener("keydown", (event) => {
+              // Check if the pressed key is the backspace key (keyCode 8) or (key  'Backspace')
+              if (event.keyCode === 8 || event.key === "Backspace") {
+                planPriceInput.value = "₱";
+              }
+            });
+          }
+        });
+      });
+    </script>
+
+<script>
+  window.addEventListener("DOMContentLoaded", (event) => {
+    // Add event listener for the "Update" button clicks
+    document.addEventListener("click", (e) => {
+      if (e.target.classList.contains("viewBtn")) {
+        const modalTitle = e.target.getAttribute("data-plan-type");
+
+        document.getElementById("viewServicesLabel").textContent = modalTitle + ' Services';
+        
+
+        
+      }
+    });
+  });
+</script>
   </body>
 </html>
