@@ -2,7 +2,7 @@ import { setRouter } from "../router/router.js";
 
 setRouter();
 
-const backendURL = "http://saintpeter-backend.test/api";
+const backendURL = "https://e0b5-64-226-63-198.ngrok-free.app/saintpeter-backend/public/api";
 //const backendURL = "https://f4cd-175-176-84-51.ngrok-free.app/saintpeter-backend/public/api";
 
 function showAlert(type, message) {

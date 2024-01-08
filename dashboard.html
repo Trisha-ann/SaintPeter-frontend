@@ -687,7 +687,7 @@
             // Passwords match, proceed with your logic
             passwordError.classList.add("d-none");
 
-            const backendURL = "http://saintpeter-backend.test/api";
+            const backendURL = "https://e0b5-64-226-63-198.ngrok-free.app/saintpeter-backend/public/api";
             const employee_id = localStorage.getItem("employee_id");
             const token = localStorage.getItem("employee_token");
 
@@ -695,6 +695,7 @@
             fetch(`${backendURL}/employee/${employee_id}`, {
               method: "PUT",
               headers: {
+                "ngrok-skip-browser-warning": "69420",
                 "Content-Type": "application/json",
                 Authorization: `Bearer ${token}`,
               },
@@ -756,13 +757,14 @@
 
       // Function to fetch customer data and populate the update modal
       function fetchCustomerDataAndUpdateModal(customerId) {
-        const backendURL = "http://saintpeter-backend.test/api";
+        const backendURL = "https://e0b5-64-226-63-198.ngrok-free.app/saintpeter-backend/public/api";
         const token = localStorage.getItem("employee_token");
 
         // Fetch the customer data based on the customerId
         fetch(`${backendURL}/customers/${customerId}`, {
           method: "GET",
           headers: {
+            "ngrok-skip-browser-warning": "69420",
             "Content-Type": "application/json",
             Authorization: `Bearer ${token}`,
           },
@@ -863,12 +865,13 @@
       });
 
       function updateCustomerData(updatedData, customer_id) {
-        const backendURL = "http://saintpeter-backend.test/api";
+        const backendURL = "https://e0b5-64-226-63-198.ngrok-free.app/saintpeter-backend/public/api";
         const token = localStorage.getItem("employee_token");
 
         fetch(`${backendURL}/customers/${customer_id}`,{
           method: "PUT",
           headers:{
+            "ngrok-skip-browser-warning": "69420",
             "Content-Type": "application/json",
                 "Authorization": `Bearer ${token}`,
           },
@@ -899,13 +902,14 @@
           if (e.target.classList.contains("delete-btn")) {
             const customerId = e.target.getAttribute("data-customer-id");
             console.log("customer id:", customerId);
-            const backendURL = "http://saintpeter-backend.test/api";
+            const backendURL = "https://e0b5-64-226-63-198.ngrok-free.app/saintpeter-backend/public/api";
             const token = localStorage.getItem("employee_token");
     
             // Fetch the customer data based on the customerId
             fetch(`${backendURL}/customers/${customerId}`, {
               method: "DELETE",
               headers: {
+                "ngrok-skip-browser-warning": "69420",
                 "Content-Type": "application/json",
                 Authorization: `Bearer ${token}`,
               },

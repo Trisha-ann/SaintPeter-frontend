@@ -27,6 +27,7 @@ document.addEventListener("DOMContentLoaded", function () {
     fetch(backendURL + "/login", {
       method: "POST",
       headers: {
+        "ngrok-skip-browser-warning": "69420",
         "Content-Type": "application/json",
       },
       body: JSON.stringify({

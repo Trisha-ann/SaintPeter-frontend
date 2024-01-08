@@ -1,11 +1,12 @@
 window.addEventListener("DOMContentLoaded", (event) => {
-  const backendURL = "http://saintpeter-backend.test/api";
+  const backendURL = "https://e0b5-64-226-63-198.ngrok-free.app/saintpeter-backend/public/api";
   const token = localStorage.getItem("employee_token");
   const employee_id = localStorage.getItem("employee_id");
 
   fetch(`${backendURL}/customers`, {
     method: "GET",
     headers: {
+      "ngrok-skip-browser-warning": "69420",
       "Content-Type": "application/json",
       Authorization: `Bearer ${token}`,
     },

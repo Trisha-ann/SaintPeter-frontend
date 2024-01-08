@@ -467,48 +467,78 @@
             </div>
 
             <!-- Modal -->
-<div class="modal fade" id="viewServices" tabindex="-1" aria-labelledby="viewServicesLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5 text-white" id="viewServicesLabel"></h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body mx-auto">
-        <div class="card mb-3" style="width: 18rem;">
-          <img src="" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-          </div>
-        </div>
+            <div
+              class="modal fade"
+              id="viewServices"
+              tabindex="-1"
+              aria-labelledby="viewServicesLabel"
+              aria-hidden="true"
+            >
+              <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h1
+                      class="modal-title fs-5 text-white"
+                      id="viewServicesLabel"
+                    ></h1>
+                    <button
+                      type="button"
+                      class="btn-close"
+                      data-bs-dismiss="modal"
+                      aria-label="Close"
+                    ></button>
+                  </div>
+                  <div class="modal-body mx-auto">
+                    <div class="card mb-3" style="width: 18rem">
+                      <img src="" class="card-img-top" alt="..." />
+                      <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">
+                          Some quick example text to build on the card title and
+                          make up the bulk of the card's content.
+                        </p>
+                      </div>
+                    </div>
 
-        <div class="card mb-3" style="width: 18rem;">
-          <img src="" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-          </div>
-        </div>
+                    <div class="card mb-3" style="width: 18rem">
+                      <img src="" class="card-img-top" alt="..." />
+                      <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">
+                          Some quick example text to build on the card title and
+                          make up the bulk of the card's content.
+                        </p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                      </div>
+                    </div>
 
-        <div class="card" style="width: 18rem;">
-          <img src="" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-          </div>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div>
+                    <div class="card" style="width: 18rem">
+                      <img src="" class="card-img-top" alt="..." />
+                      <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">
+                          Some quick example text to build on the card title and
+                          make up the bulk of the card's content.
+                        </p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="modal-footer">
+                    <button
+                      type="button"
+                      class="btn btn-secondary"
+                      data-bs-dismiss="modal"
+                    >
+                      Close
+                    </button>
+                    <button type="button" class="btn btn-primary">
+                      Save changes
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </main>
         <footer class="py-4 bg-light mt-auto">
@@ -651,7 +681,7 @@
             // Passwords match, proceed with your logic
             passwordError.classList.add("d-none");
 
-            const backendURL = "http://saintpeter-backend.test/api";
+            const backendURL = "https://e0b5-64-226-63-198.ngrok-free.app/saintpeter-backend/public/api";
             const employee_id = localStorage.getItem("employee_id");
             const token = localStorage.getItem("employee_token");
 
@@ -659,6 +689,7 @@
             fetch(`${backendURL}/employee/${employee_id}`, {
               method: "PUT",
               headers: {
+                "ngrok-skip-browser-warning": "69420",
                 "Content-Type": "application/json",
                 Authorization: `Bearer ${token}`,
               },
@@ -690,15 +721,16 @@
         });
     </script>
 
-<!-- script to fetch all the plans -->
+    <!-- script to fetch all the plans -->
     <script>
       document.addEventListener("DOMContentLoaded", function () {
-        const backendURL = "http://saintpeter-backend.test/api";
+        const backendURL = "https://e0b5-64-226-63-198.ngrok-free.app/saintpeter-backend/public/api";
         const token = localStorage.getItem("employee_token");
 
         fetch(`${backendURL}/plans`, {
           method: "GET",
           headers: {
+            "ngrok-skip-browser-warning": "69420",
             "Content-Type": "application/json",
             Authorization: `Bearer ${token}`,
           },
@@ -728,7 +760,7 @@
 
               const img = document.createElement("img");
               img.classList.add("d-block", "w-100", "opacity-img");
-              img.src = `http://saintpeter-backend.test/storage/${item.plan_image}`;
+              img.src = `https://e0b5-64-226-63-198.ngrok-free.app/saintpeter-backend/public/storage/${item.plan_image}`;
 
               const carouselCaption = document.createElement("div");
               carouselCaption.classList.add("carousel-caption", "d-md-block");
@@ -741,16 +773,11 @@
                 item.plan_name
               } - ₱${formatNumberWithCommas(item.plan_price)}</p>
               <p class="text-center">( ${item.plan_type} )</p>
-              <div class="row">
-                <div class="col-md-6 mb-2">
-                  <button type="button" class="btn btn-outline-light rounded viewBtn" data-bs-toggle="modal" data-bs-target="#viewServices" data-plan-id="${
-                item.plan_id
-              }" data-plan-type="${item.plan_type}">View Services</button>
-                </div>  
+              <div class="row d-flex justify-content-center align-items-center">
                 <div class="col-md-6">
                   <button type="button" class="btn btn-light rounded purchasedBtn" data-plan-price="${
-                item.plan_price
-              }">Purchased</button>
+                    item.plan_price
+                  }">Purchased</button>
                 </div>
               </div>`;
 
@@ -766,7 +793,7 @@
       });
     </script>
 
-<!-- script to input the price into the input field -->
+    <!-- script to input the price into the input field -->
     <script>
       window.addEventListener("DOMContentLoaded", (event) => {
         // Add event listener for the "Update" button clicks
@@ -795,20 +822,6 @@
       });
     </script>
 
-<script>
-  window.addEventListener("DOMContentLoaded", (event) => {
-    // Add event listener for the "Update" button clicks
-    document.addEventListener("click", (e) => {
-      if (e.target.classList.contains("viewBtn")) {
-        const modalTitle = e.target.getAttribute("data-plan-type");
-
-        document.getElementById("viewServicesLabel").textContent = modalTitle + ' Services';
-        
-
-        
-      }
-    });
-  });
-</script>
+    
   </body>
 </html>
