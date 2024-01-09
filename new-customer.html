@@ -681,7 +681,7 @@
             // Passwords match, proceed with your logic
             passwordError.classList.add("d-none");
 
-            const backendURL = "https://e0b5-64-226-63-198.ngrok-free.app/saintpeter-backend/public/api";
+            const backendURL = "https://7fcc-64-226-63-198.ngrok-free.app/api";
             const employee_id = localStorage.getItem("employee_id");
             const token = localStorage.getItem("employee_token");
 
@@ -724,7 +724,7 @@
     <!-- script to fetch all the plans -->
     <script>
       document.addEventListener("DOMContentLoaded", function () {
-        const backendURL = "https://e0b5-64-226-63-198.ngrok-free.app/saintpeter-backend/public/api";
+        const backendURL = "https://7fcc-64-226-63-198.ngrok-free.app/api";
         const token = localStorage.getItem("employee_token");
 
         fetch(`${backendURL}/plans`, {
@@ -760,7 +760,7 @@
 
               const img = document.createElement("img");
               img.classList.add("d-block", "w-100", "opacity-img");
-              img.src = `https://e0b5-64-226-63-198.ngrok-free.app/saintpeter-backend/public/storage/${item.plan_image}`;
+              img.src = `https://7fcc-64-226-63-198.ngrok-free.app/storage/${item.plan_image}`;
 
               const carouselCaption = document.createElement("div");
               carouselCaption.classList.add("carousel-caption", "d-md-block");
