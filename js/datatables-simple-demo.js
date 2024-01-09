@@ -1,5 +1,5 @@
 window.addEventListener("DOMContentLoaded", (event) => {
-  const backendURL = "https://7fcc-64-226-63-198.ngrok-free.app/api";
+  const backendURL = "http://saintpeter-backend.test/api";
   const token = localStorage.getItem("employee_token");
   const employee_id = localStorage.getItem("employee_id");
 
