@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Payment</title>
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css"
+      rel="stylesheet"
+    />
+    <link href="css/styles.css" rel="stylesheet" />
+
+    <script
+      src="https://use.fontawesome.com/releases/v6.3.0/js/all.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body class="sb-nav-fixed">
+    <nav class="sb-topnav navbar navbar-expand navbar-dark bg-success">
+      <!-- Navbar Brand-->
+      <a class="navbar-brand ps-3" href="dashboard.html"
+        >Saint Peter Life Plan</a
+      >
+      <!-- Sidebar Toggle-->
+      <button
+        class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0"
+        id="sidebarToggle"
+        href="#!"
+      >
+        <i class="fas fa-bars"></i>
+      </button>
+      <ul class="navbar-nav ms-auto me-0 me-md-3 my-2 my-md-0">
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            id="navbarDropdown"
+            href="#"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+            ><i class="fas fa-user fa-fw"></i
+          ></a>
+          <ul
+            class="dropdown-menu dropdown-menu-end"
+            aria-labelledby="navbarDropdown"
+          >
+            <li>
+              <button
+                type="button"
+                class="dropdown-item"
+                data-bs-toggle="modal"
+                data-bs-target="#exampleModal"
+              >
+                Change Password
+              </button>
+            </li>
+            <li><hr class="dropdown-divider" /></li>
+            <button type="button" class="dropdown-item" id="employee_logout">
+              Logout
+            </button>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="exampleModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5 text-white" id="exampleModalLabel">
+              Change Password
+            </h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <div
+              id="passwordError"
+              class="text-danger d-none mb-2 text-center p-2 rounded"
+              style="background-color: #f8d7da"
+            >
+              Passwords do not match
+            </div>
+            <div
+              id="passwordSuccess"
+              class="text-success d-none mb-2 text-center p-2 rounded"
+              style="background-color: #d1f7c4"
+            >
+              Password Successfully Changed
+            </div>
+            <form action="" id="employee_changePassword">
+              <label class="form-label text-color" for="employeePassword"
+                >New Password</label
+              >
+              <div class="input-group mb-4">
+                <span
+                  class="input-group-text border-input bg-transparent"
+                  id="new_password-icon"
+                >
+                  <button
+                    type="button"
+                    id="showpassword-icon"
+                    class="border-0 bg-transparent"
+                  >
+                    <i class="fas fa-lock text-color" id="lock"></i>
+                    <i class="fas fa-unlock text-color d-none" id="unlock"></i>
+                  </button>
+                </span>
+                <input
+                  type="password"
+                  id="employeePassword"
+                  name="employeePassword"
+                  class="form-control form-control-lg border-input text-color"
+                  aria-label="Employee Password"
+                  aria-describedby="new_password-icon"
+                  required
+                />
+              </div>
+
+              <label class="form-label text-color" for="employeeConfirmPassword"
+                >Confirm Password</label
+              >
+              <div class="input-group mb-4">
+                <span
+                  class="input-group-text border-input bg-transparent"
+                  id="confirm_password-icon"
+                >
+                  <button
+                    type="button"
+                    id="confirmpassword-icon"
+                    class="border-0 bg-transparent"
+                  >
+                    <i class="fas fa-lock text-color" id="confirm_lock"></i>
+                    <i
+                      class="fas fa-unlock text-color d-none"
+                      id="confirm_unlock"
+                    ></i>
+                  </button>
+                </span>
+                <input
+                  type="password"
+                  id="employeeConfirmPassword"
+                  name="employeeConfirmPassword"
+                  class="form-control form-control-lg border-input text-color"
+                  aria-label="Employee Password"
+                  aria-describedby="confirm_password-icon"
+                  required
+                />
+              </div>
+
+              <div class="d-flex justify-content-center align-items-center">
+                <button class="btn btn-success btn-lg btn-block" type="submit">
+                  Proceed
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="layoutSidenav">
+      <div id="layoutSidenav_nav">
+        <nav
+          class="sb-sidenav accordion sb-sidenav-success"
+          id="sidenavAccordion"
+        >
+          <div class="sb-sidenav-menu">
+            <div class="nav">
+              <div class="sb-sidenav-menu-heading">General</div>
+              <a class="nav-link" href="dashboard.html">
+                <div class="sb-nav-link-icon">
+                  <i class="fas fa-tachometer-alt"></i>
+                </div>
+                Dashboard
+              </a>
+              <a
+                class="nav-link collapsed"
+                href="payment-records.html"
+              >
+                <div class="sb-nav-link-icon"><i class="fas fa-book"></i></div>
+                Payment Records
+              </a>   
+          <div class="sb-sidenav-footer text-white fixed-bottom">
+            <div class="small">Logged in as:</div>
+            <div class="small" id="employee_name"></div>
+          </div>
+        </nav>
+      </div>
+      <div id="layoutSidenav_content">
+        <main>
+          <div class="container px-4">
+            <h1 class="mt-4">Payment Bill</h1>
+            <!-- card bill -->
+            <div class="row">
+              <div class="col-12 col-md-6 mx-auto">
+                <div class="card mx-auto mt-4 border-success border-2">
+                  <div class="card-body">
+                    <h5 class="card-title text-center text-success">
+                      Saint Peter Life Plan - Customers Bill
+                    </h5>
+                    <form class="form-card mt-4" action="">
+                      <div class="form-outline">
+                        <input
+                          type="text"
+                          id="customer_amount_purchased"
+                          class="form-control form-control-lg border-success"
+                          required
+                          autocomplete="off"
+                          value="₱ "
+                        />
+                        <label
+                          class="form-label"
+                          for="customer_amount_purchased"
+                          >Amount Purchased
+                          <span class="text-danger">*</span></label
+                        >
+                      </div>
+
+                      <div class="form-outline mt-2">
+                        <input
+                          type="text"
+                          id="customer_amount_received"
+                          class="form-control form-control-lg border-success"
+                          required
+                          autocomplete="off"
+                          value="₱ "
+                        />
+                        <label class="form-label" for="customer_amount_received"
+                          >Amount Received
+                          <span class="text-danger">*</span></label
+                        >
+                      </div>
+
+                      <div class="row mt-2">
+                        <div class="col-md-6">
+                          <div class="form-outline form-white">
+                            <input
+                              type="text"
+                              id="customer_changed"
+                              class="form-control form-control-lg text-muted border-success"
+                              readonly
+                              value="₱"
+                            />
+                            <label class="form-label" for="customer_changed"
+                              >Changed</label
+                            >
+                          </div>
+                        </div>
+
+                        <div class="col-md-6">
+                          <div class="form-outline form-white">
+                            <input
+                              type="text"
+                              id="customer_balance"
+                              class="form-control form-control-lg text-muted border-success"
+                              readonly
+                              value="₱"
+                            />
+                            <label class="form-label" for="customer_balance"
+                              >Balance</label
+                            >
+                          </div>
+                        </div>
+                      </div>
+
+                      <div
+                        class="form-outline form-white mt-2"
+                        style="outline: none; box-shadow: none"
+                      >
+                        <select
+                          id="customer_duration"
+                          class="form-select form-select-lg border-success"
+                          required
+                        >
+                          <option value="" disabled selected>...</option>
+                          <option value="weekly">Every week</option>
+                          <option value="monthly">Every month</option>
+                          <option value="3 months">Every 3 months</option>
+                        </select>
+                        <label class="form-label" for="customer_duration"
+                          >Payment Duration</label
+                        >
+                      </div>
+
+                      <div
+                        class="d-flex justify-content-center align-items-center"
+                      >
+                        <button
+                          type="button"
+                          class="btn btn-success"
+                          id="paymentDoneBtn"
+                        >
+                          Done
+                        </button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </main>
+        <footer class="py-4 bg-light mt-auto">
+          <div class="container-fluid px-4">
+            <div class="d-flex align-items-center justify-content-center small">
+              <div class="text-muted">Copyright &copy; IT-110 2024</div>
+            </div>
+          </div>
+        </footer>
+      </div>
+    </div>
+    <script></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="js/scripts.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $("#customer_duration").on("keydown", function (e) {
+          if (e.keyCode == 8 || e.keyCode == 46) {
+            // Check for backspace (8) or delete (46) key
+            $(this).val(""); // Clear the selection
+          }
+        });
+      });
+    </script>
+
+    <!--original script for logout-->
+    <script type="text/javascript" src="js/auth/employee_logout.js"></script>
+    <!-- <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        var planPrice = localStorage.getItem("planPrice");
+
+        if (!planPrice) {
+          // Redirect to the login page or take appropriate action
+          window.location.href = "dashboard.html";
+        }
+      });
+    </script> -->
+
+    <!--script for showing the new password-->
+    <script>
+      document
+        .getElementById("showpassword-icon")
+        .addEventListener("click", function () {
+          var passwordField = document.getElementById("employeePassword");
+          var lockIcon = document.getElementById("lock");
+          var unlockIcon = document.getElementById("unlock");
+
+          if (passwordField.type === "password") {
+            passwordField.type = "text";
+            unlockIcon.classList.remove("d-none");
+            lockIcon.classList.add("d-none");
+          } else {
+            passwordField.type = "password";
+            unlockIcon.classList.add("d-none");
+            lockIcon.classList.remove("d-none");
+          }
+        });
+    </script>
+
+    <!--script for showing the confirm password-->
+    <script>
+      document
+        .getElementById("confirmpassword-icon")
+        .addEventListener("click", function () {
+          var passwordField = document.getElementById(
+            "employeeConfirmPassword"
+          );
+          var lockIcon = document.getElementById("confirm_lock");
+          var unlockIcon = document.getElementById("confirm_unlock");
+
+          if (passwordField.type === "password") {
+            passwordField.type = "text";
+            unlockIcon.classList.remove("d-none");
+            lockIcon.classList.add("d-none");
+          } else {
+            passwordField.type = "password";
+            unlockIcon.classList.add("d-none");
+            lockIcon.classList.remove("d-none");
+          }
+        });
+    </script>
+
+    <!--script for updating the password-->
+    <script>
+      document
+        .getElementById("employee_changePassword") // Updated to match the button ID
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+
+          var newPassword = document.getElementById("employeePassword").value;
+          var confirmPassword = document.getElementById(
+            "employeeConfirmPassword"
+          ).value;
+          var passwordError = document.getElementById("passwordError");
+          var passwordSuccess = document.getElementById("passwordSuccess");
+
+          if (newPassword !== confirmPassword) {
+            // Passwords do not match, display error message
+            passwordError.classList.remove("d-none");
+            passwordSuccess.classList.add("d-none");
+          } else {
+            // Passwords match, proceed with your logic
+            passwordError.classList.add("d-none");
+
+            const backendURL = "http://saintpeter-backend.test/api";
+            const employee_id = localStorage.getItem("employee_id");
+            const token = localStorage.getItem("employee_token");
+
+            // Fetch API to send the password change request
+            fetch(`${backendURL}/employee/${employee_id}`, {
+              method: "PUT",
+              headers: {
+                "ngrok-skip-browser-warning": "69420",
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${token}`,
+              },
+              body: JSON.stringify({
+                password: confirmPassword,
+              }),
+            })
+              .then((response) => {
+                if (!response.ok) {
+                  throw new Error("Password update failed");
+                }
+                return response.json();
+              })
+              .then((data) => {
+                // Handle success
+                console.log("Password updated successfully", data);
+
+                // Clear input fields
+                document.getElementById("employeePassword").value = "";
+                document.getElementById("employeeConfirmPassword").value = "";
+                passwordSuccess.classList.remove("d-none");
+              })
+              .catch((error) => {
+                // Handle error
+                console.error("Error updating password:", error.message);
+                // Display an error message to the user or handle it accordingly
+              });
+          }
+        });
+    </script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Retrieve data from localStorage
+        var firstName = localStorage.getItem("first_name");
+        var lastName = localStorage.getItem("last_name");
+
+        // Display data in the HTML
+        var userDataDiv = document.getElementById("employee_name");
+        if (userDataDiv) {
+          userDataDiv.innerHTML = `${firstName} ${lastName}`;
+        }
+
+        document.getElementById("customer_amount_purchased").value =
+          localStorage.getItem("planPrice") !== null
+            ? "₱" + localStorage.getItem("planPrice")
+            : "₱ ";
+
+        document
+          .getElementById("customer_amount_received")
+          .addEventListener("input", function () {
+            const amountPurchased =
+              parseFloat(
+                document
+                  .getElementById("customer_amount_purchased")
+                  .value.replace("₱", "")
+                  .trim()
+              ) || 0;
+            const amountReceived =
+              parseFloat(
+                document
+                  .getElementById("customer_amount_received")
+                  .value.replace("₱", "")
+                  .trim()
+              ) || 0;
+
+            let changed;
+            if (amountReceived < amountPurchased) {
+              changed = 0;
+            } else {
+              changed = amountReceived - amountPurchased;
+            }
+            const balance = Math.abs(amountPurchased - amountReceived);
+
+            document.getElementById(
+              "customer_changed"
+            ).value = `₱ ${changed.toFixed(2)}`;
+            document.getElementById(
+              "customer_balance"
+            ).value = `₱ ${balance.toFixed(2)}`;
+          });
+
+        document
+          .getElementById("paymentDoneBtn")
+          .addEventListener("click", function () {
+            const paymentDuration =
+              document.getElementById("customer_duration").value;
+            // Check if required values are not empty or NaN before making the API call
+            const amountPurchased = parseFloat(
+              document
+                .getElementById("customer_amount_purchased")
+                .value.replace("₱", "")
+                .trim()
+            );
+            const amountReceived = isNaN(
+              parseFloat(
+                document
+                  .getElementById("customer_amount_received")
+                  .value.replace("₱", "")
+                  .trim()
+              )
+            )
+              ? 0
+              : parseFloat(
+                  document
+                    .getElementById("customer_amount_received")
+                    .value.replace("₱", "")
+                    .trim()
+                );
+
+            const backendURL = "http://saintpeter-backend.test/api";
+            const token = localStorage.getItem("employee_token");
+
+            fetch(`${backendURL}/payment`, {
+              method: "POST",
+              headers: {
+                "ngrok-skip-browser-warning": "69420",
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${token}`,
+              },
+              body: JSON.stringify({
+                customers_id: localStorage.getItem("customersId"),
+                plan_id: localStorage.getItem("planId"),
+                employee_id: localStorage.getItem("employee_id"),
+                purchased_payable: amountPurchased,
+                amount_received: amountReceived,
+                balance: Math.abs(amountPurchased - amountReceived),
+                payment_duration: paymentDuration,
+              }),
+            })
+              .then((response) => {
+                if (!response.ok) {
+                  throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+                return response.json();
+              })
+              .then((data) => {
+                console.log("Payment added successfully", data);
+                localStorage.removeItem("planId");
+                localStorage.removeItem("customersId");
+                localStorage.removeItem("planPrice");
+              })
+              .catch((error) => {
+
+              });
+          });
+      });
+    </script>
+  </body>
+</html>

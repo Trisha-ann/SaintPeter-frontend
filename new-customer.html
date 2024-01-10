@@ -190,61 +190,13 @@
                 </div>
                 Dashboard
               </a>
-              <div class="sb-sidenav-menu-heading">Interface</div>
               <a
                 class="nav-link collapsed"
-                href="#"
-                data-bs-toggle="collapse"
-                data-bs-target="#collapseLayouts"
-                aria-expanded="false"
-                aria-controls="collapseLayouts"
-              >
-                <div class="sb-nav-link-icon"><i class="fas fa-user"></i></div>
-                Customers
-                <div class="sb-sidenav-collapse-arrow">
-                  <i class="fas fa-angle-down"></i>
-                </div>
-              </a>
-              <div
-                class="collapse"
-                id="collapseLayouts"
-                aria-labelledby="headingOne"
-                data-bs-parent="#sidenavAccordion"
-              >
-                <nav class="sb-sidenav-menu-nested nav">
-                  <a class="nav-link" href="layout-static.html"
-                    >Static Navigation</a
-                  >
-                  <a class="nav-link" href="layout-sidenav-light.html"
-                    >Light Sidenav</a
-                  >
-                </nav>
-              </div>
-              <a
-                class="nav-link collapsed"
-                href="#"
-                data-bs-toggle="collapse"
-                data-bs-target="#collapsePages"
-                aria-expanded="false"
-                aria-controls="collapsePages"
+                href="payment-records.html"
               >
                 <div class="sb-nav-link-icon"><i class="fas fa-book"></i></div>
                 Payment Records
-              </a>
-
-              <div class="sb-sidenav-menu-heading">Addons</div>
-              <a class="nav-link" href="charts.html">
-                <div class="sb-nav-link-icon">
-                  <i class="fas fa-chart-area"></i>
-                </div>
-                Charts
-              </a>
-              <a class="nav-link" href="tables.html">
-                <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
-                Tables
-              </a>
-            </div>
-          </div>
+              </a>   
           <div class="sb-sidenav-footer text-white fixed-bottom">
             <div class="small">Logged in as:</div>
             <div class="small" id="employee_name"></div>
@@ -312,166 +264,162 @@
                           <div class="p-5">
                             <h3 class="fw-normal mb-5">Customer Information</h3>
 
-                            <form action="">
-                              <div class="row">
-                                <div class="col-md-6 mb-4 pb-2">
-                                  <div class="form-outline">
-                                    <input
-                                      type="text"
-                                      id="customer_last_name"
-                                      class="form-control form-control-lg"
-                                      required
-                                      autocomplete="off"
-                                    />
-                                    <label
-                                      class="form-label"
-                                      for="customer_last_name"
-                                      >Last name</label
-                                    >
-                                  </div>
-                                </div>
-                                <div class="col-md-6 mb-4 pb-2">
-                                  <div class="form-outline">
-                                    <input
-                                      type="text"
-                                      id="customer_first_name"
-                                      class="form-control form-control-lg"
-                                      required
-                                      autocomplete="off"
-                                    />
-                                    <label
-                                      class="form-label"
-                                      for="customer_first_name"
-                                      >First name</label
-                                    >
-                                  </div>
-                                </div>
-                              </div>
-
-                              <div class="mb-4 pb-2">
-                                <div class="form-outline form-white">
+                            <div class="row">
+                              <div class="col-md-6 mb-4 pb-2">
+                                <div class="form-outline">
                                   <input
                                     type="text"
-                                    id="customer_address"
+                                    id="customer_last_name"
                                     class="form-control form-control-lg"
                                     required
                                     autocomplete="off"
                                   />
                                   <label
                                     class="form-label"
-                                    for="customer_address"
-                                    >Address</label
+                                    for="customer_last_name"
+                                    >Last name</label
+                                  >
+                                </div>
+                              </div>
+                              <div class="col-md-6 mb-4 pb-2">
+                                <div class="form-outline">
+                                  <input
+                                    type="text"
+                                    id="customer_first_name"
+                                    class="form-control form-control-lg"
+                                    required
+                                    autocomplete="off"
+                                  />
+                                  <label
+                                    class="form-label"
+                                    for="customer_first_name"
+                                    >First name</label
+                                  >
+                                </div>
+                              </div>
+                            </div>
+
+                            <div class="mb-4 pb-2">
+                              <div class="form-outline form-white">
+                                <input
+                                  type="text"
+                                  id="customer_address"
+                                  class="form-control form-control-lg"
+                                  required
+                                  autocomplete="off"
+                                />
+                                <label class="form-label" for="customer_address"
+                                  >Address</label
+                                >
+                              </div>
+                            </div>
+
+                            <div class="row">
+                              <div class="col-md-6 mb-4 pb-2">
+                                <div class="form-outline form-white">
+                                  <input
+                                    type="text"
+                                    id="customer_age"
+                                    class="form-control form-control-lg text-muted"
+                                    readonly
+                                    value=""
+                                  />
+                                  <label class="form-label" for="customer_age"
+                                    >Age</label
+                                  >
+                                </div>
+                              </div>
+                              <div class="col-md-6 mb-4 pb-2">
+                                <div
+                                  class="form-outline form-white"
+                                  style="outline: none; box-shadow: none"
+                                >
+                                  <select
+                                    id="customer_gender"
+                                    class="form-select form-select-lg"
+                                    required
+                                  >
+                                    <option value="" disabled selected>
+                                      ...
+                                    </option>
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                    <option value="Prefer Not To Say">
+                                      Not Prefer to Say
+                                    </option>
+                                  </select>
+                                  <label
+                                    class="form-label"
+                                    for="customer_gender"
+                                    >Gender</label
+                                  >
+                                </div>
+                              </div>
+                            </div>
+
+                            <div class="row">
+                              <div class="col-md-6 mb-4 pb-2">
+                                <div class="form-outline form-white">
+                                  <input
+                                    type="date"
+                                    id="customer_birthdate"
+                                    class="form-control form-control-lg"
+                                    required
+                                    autocomplete="off"
+                                  />
+                                  <label
+                                    class="form-label"
+                                    for="customer_birthdate"
+                                    >Birth Date</label
                                   >
                                 </div>
                               </div>
 
-                              <div class="row">
-                                <div class="col-md-6 mb-4 pb-2">
-                                  <div class="form-outline form-white">
-                                    <input
-                                      type="text"
-                                      id="customer_age"
-                                      class="form-control form-control-lg text-muted"
-                                      readonly
-                                      value=""
-                                    />
-                                    <label class="form-label" for="customer_age"
-                                      >Age</label
-                                    >
-                                  </div>
-                                </div>
-                                <div class="col-md-6 mb-4 pb-2">
-                                  <div
-                                    class="form-outline form-white"
-                                    style="outline: none; box-shadow: none"
+                              <div class="col-md-6 mb-4 pb-2">
+                                <div class="form-outline form-white">
+                                  <input
+                                    type="date"
+                                    id="customer_deathdate"
+                                    class="form-control form-control-lg"
+                                    autocomplete="off"
+                                  />
+                                  <label
+                                    class="form-label"
+                                    for="customer_deathdate"
+                                    >Death Date
+                                    <em class="fs-6"
+                                      >*(if the customer already dead)</em
+                                    ></label
                                   >
-                                    <select
-                                      id="customer_gender"
-                                      class="form-select form-select-lg"
-                                      required
-                                    >
-                                      <option value="" disabled selected>
-                                        ...
-                                      </option>
-                                      <option value="Male">Male</option>
-                                      <option value="Female">Female</option>
-                                      <option value="Prefer Not To Say">
-                                        Not Prefer to Say
-                                      </option>
-                                    </select>
-                                    <label
-                                      class="form-label"
-                                      for="customer_gender"
-                                      >Gender</label
-                                    >
-                                  </div>
                                 </div>
                               </div>
+                            </div>
 
-                              <div class="row">
-                                <div class="col-md-6 mb-4 pb-2">
-                                  <div class="form-outline form-white">
-                                    <input
-                                      type="date"
-                                      id="customer_birthdate"
-                                      class="form-control form-control-lg"
-                                      required
-                                      autocomplete="off"
-                                    />
-                                    <label
-                                      class="form-label"
-                                      for="customer_birthdate"
-                                      >Birth Date</label
-                                    >
-                                  </div>
-                                </div>
-
-                                <div class="col-md-6 mb-4 pb-2">
-                                  <div class="form-outline form-white">
-                                    <input
-                                      type="date"
-                                      id="customer_deathdate"
-                                      class="form-control form-control-lg"
-                                      autocomplete="off"
-                                    />
-                                    <label
-                                      class="form-label"
-                                      for="customer_deathdate"
-                                      >Death Date
-                                      <em class="fs-6"
-                                        >*(if the customer already dead)</em
-                                      ></label
-                                    >
-                                  </div>
+                            <div class="row">
+                              <div class="col-md-6 mb-4 pb-2">
+                                <div class="form-outline form-white">
+                                  <input
+                                    type="text"
+                                    id="plan_price"
+                                    class="form-control form-control-lg text-muted"
+                                    readonly
+                                    value="₱"
+                                  />
+                                  <label class="form-label" for="plan_price"
+                                    >Plan Purchased</label
+                                  >
                                 </div>
                               </div>
+                            </div>
 
-                              <div class="row">
-                                <div class="col-md-6 mb-4 pb-2">
-                                  <div class="form-outline form-white">
-                                    <input
-                                      type="text"
-                                      id="plan_price"
-                                      class="form-control form-control-lg text-muted"
-                                      readonly
-                                      value="₱"
-                                    />
-                                    <label class="form-label" for="plan_price"
-                                      >Plan Purchased</label
-                                    >
-                                  </div>
-                                </div>
-                              </div>
-
-                              <button
-                                type="button"
-                                class="btn btn-light btn-lg text-success"
-                                data-mdb-ripple-color="dark"
-                                id="nextBtn"
-                              >
-                                Next
-                              </button>
-                            </form>
+                            <button
+                              type="button"
+                              class="btn btn-light btn-lg text-success"
+                              data-mdb-ripple-color="dark"
+                              id="nextBtn"
+                            >
+                              Next
+                            </button>
                           </div>
                         </div>
                       </div>
@@ -718,7 +666,7 @@
                 <div class="col-md-6">
                   <button type="button" class="btn btn-light rounded purchasedBtn" data-plan-price="${
                     item.plan_price
-                  }">Purchased</button>
+                  }" data-plan-id="${item.plan_id}">Purchased</button>
                 </div>
               </div>`;
 
@@ -741,6 +689,9 @@
         document.addEventListener("click", (e) => {
           if (e.target.classList.contains("purchasedBtn")) {
             const planPrice = e.target.getAttribute("data-plan-price");
+            const planId = e.target.getAttribute("data-plan-id");
+            localStorage.setItem("planId", planId);
+            localStorage.setItem("planPrice", planPrice);
 
             //function to make the price separated by comma if it is thousand and above
             function formatNumberWithCommas(number) {
@@ -756,6 +707,8 @@
               // Check if the pressed key is the backspace key (keyCode 8) or (key  'Backspace')
               if (event.keyCode === 8 || event.key === "Backspace") {
                 planPriceInput.value = "₱";
+                localStorage.removeItem("planId");
+                localStorage.removeItem("planPrice");
               }
             });
           }
@@ -788,7 +741,7 @@
             birthDate.trim() === "" ||
             planPrice.trim() === "₱"
           ) {
-            alert("There are fields that are empty!");
+            alert("There are input fields that are empty!");
           } else {
             const backendURL = "http://saintpeter-backend.test/api";
             const token = localStorage.getItem("employee_token");
@@ -810,18 +763,23 @@
                 death_date: deathDate,
                 employee_id: localStorage.getItem("employee_id"),
               }),
-            }).then((response) => {
-              if (!response.ok) {
-                throw new Error(`HTTP error! Status: ${response.status}`);
-              }
-              return response.json();
             })
-            .then((data) =>{
-              console.log("customer added successfully", data);
-            })
+              .then((response) => {
+                if (!response.ok) {
+                  throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+                return response.json();
+              })
+              .then((data) => {
+                console.log("customer added successfully", data);
+                localStorage.setItem("customersId", data.customers_id);
+                window.location.href = "payment-page.html";
+              })
+              .catch((error) => {
+                console.error("Error adding customer:", error.message);
+                // Handle the error more appropriately (e.g., show an error message to the user)
+              });
           }
-
-          console.log(lastName);
         });
     </script>
   </body>

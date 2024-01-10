@@ -39,6 +39,10 @@ document.addEventListener("DOMContentLoaded", function () {
               localStorage.removeItem("first_name");
               localStorage.removeItem("last_name");
               localStorage.removeItem("sb|sidebar-toggle");
+              localStorage.removeItem("employee_id");
+              localStorage.removeItem("planId");
+              localStorage.removeItem("customers_id");
+              localStorage.removeItem("planPrice");
               window.location.href = "/";
             })
             .catch(function (error) {
