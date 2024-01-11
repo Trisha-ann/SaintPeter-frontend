@@ -642,7 +642,7 @@
             // Passwords match, proceed with your logic
             passwordError.classList.add("d-none");
 
-            const backendURL = "http://saintpeter-backend.test/api";
+            const backendURL = "https://7bde-112-198-99-31.ngrok-free.app/api";
             const employee_id = localStorage.getItem("employee_id");
             const token = localStorage.getItem("employee_token");
 
@@ -712,7 +712,7 @@
 
       // Function to fetch customer data and populate the update modal
       function fetchCustomerDataAndUpdateModal(customerId) {
-        const backendURL = "http://saintpeter-backend.test/apihttps://7fcc-64-226-63-198.ngrok-free.app/api";
+        const backendURL = "https://7bde-112-198-99-31.ngrok-free.app/api";
         const token = localStorage.getItem("employee_token");
 
         // Fetch the customer data based on the customerId
@@ -820,7 +820,7 @@
       });
 
       function updateCustomerData(updatedData, customer_id) {
-        const backendURL = "http://saintpeter-backend.test/api";
+        const backendURL = "https://7bde-112-198-99-31.ngrok-free.app/api";
         const token = localStorage.getItem("employee_token");
 
         fetch(`${backendURL}/customers/${customer_id}`,{
@@ -857,7 +857,7 @@
           if (e.target.classList.contains("delete-btn")) {
             const customerId = e.target.getAttribute("data-customer-id");
             console.log("customer id:", customerId);
-            const backendURL = "http://saintpeter-backend.test/api";
+            const backendURL = "https://7bde-112-198-99-31.ngrok-free.app/api";
             const token = localStorage.getItem("employee_token");
     
             // Fetch the customer data based on the customerId

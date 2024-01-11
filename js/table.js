@@ -7,7 +7,7 @@ window.addEventListener('DOMContentLoaded', event => {
   //     new simpleDatatables.DataTable(datatablesSimple);
   // }
 
-  const backendURL = "http://saintpeter-backend.test/api";
+  const backendURL = "https://7bde-112-198-99-31.ngrok-free.app/api";
   const token = localStorage.getItem("employee_token");
   const employee_id = localStorage.getItem("employee_id");
 
