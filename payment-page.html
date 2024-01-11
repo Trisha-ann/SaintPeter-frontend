@@ -343,16 +343,17 @@
 
     <!--original script for logout-->
     <script type="text/javascript" src="js/auth/employee_logout.js"></script>
-    <!-- <script>
+    <script>
       document.addEventListener("DOMContentLoaded", function () {
         var planPrice = localStorage.getItem("planPrice");
+        var planId = localStorage.getItem("planId");
 
-        if (!planPrice) {
+        if (!planPrice && !planId) {
           // Redirect to the login page or take appropriate action
           window.location.href = "dashboard.html";
         }
       });
-    </script> -->
+    </script>
 
     <!--script for showing the new password-->
     <script>
@@ -570,6 +571,7 @@
                 localStorage.removeItem("planId");
                 localStorage.removeItem("customersId");
                 localStorage.removeItem("planPrice");
+                window.location.href = "payment-records.html";
               })
               .catch((error) => {
 

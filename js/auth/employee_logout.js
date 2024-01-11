@@ -11,7 +11,6 @@ document.addEventListener("DOMContentLoaded", function () {
   
       if (logoutButton) {
         logoutButton.addEventListener("click", function () {
-            console.log("button click");
 
           const backendURL = "http://saintpeter-backend.test/api";
           //const backendURL = "https://f4cd-175-176-84-51.ngrok-free.app/saintpeter-backend/public/api";

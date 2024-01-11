@@ -208,62 +208,13 @@
           <div class="container px-4">
             <h1 class="mt-4">Payment Records</h1>
 
-            <div class="row">
-              <div class="col-xl-3 col-md-6">
-                <a class="text-decoration-none" href="#">
-                  <div class="card bg-success text-white mb-4">
-                    <div class="card-body">
-                      <p class="fw-bold text-center">Total Customers</p>
-                      <div class="d-flex align-items-center gap-4">
-                        <i class="fa-solid fa-money-bill-wave icon-size"></i>
-                        <h1 class="text-center fs-1" id="totalCustomersCount">
-                          0
-                        </h1>
-                      </div>
-                    </div>
-                  </div>
-                </a>
-              </div>
-              <div class="col-xl-3 col-md-6">
-                <a class="text-decoration-none" href="#">
-                  <div class="card bg-danger text-white mb-4">
-                    <div class="card-body">
-                      <p class="fw-bold text-center">
-                        Number of Customers Died
-                      </p>
-                      <div class="d-flex align-items-center gap-4">
-                        <i class="fas fa-skull icon-size"></i>
-                        <h1 class="text-center fs-1" id="numberOfCustomersDied">
-                          0
-                        </h1>
-                      </div>
-                    </div>
-                  </div>
-                </a>
-              </div>
-              <div class="col-xl-3 col-md-6">
-                <a class="text-decoration-none" href="new-customer.html">
-                  <div class="card bg-success text-white mb-4">
-                    <div class="card-body">
-                      <p class="fw-bold text-center">Add Customer</p>
-                      <div
-                        class="d-flex justify-content-center align-items-center"
-                      >
-                        <i class="fas fa-user-plus icon-size"></i>
-                      </div>
-                    </div>
-                  </div>
-                </a>
-              </div>
-            </div>
-
-            <div class="card mb-4">
+            <div class="card mt-5">
               <div class="card-header bg-success text-white">
-                <i class="fas fa-users me-1"></i>
-                All Customers
+                <i class="fas fa-book me-1"></i>
+                Records
               </div>
-              <div class="card-body">
-                <table id="datatablesSimple">
+              <!-- <div class="card-body">
+                <table id="paymentTable">
                   <thead>
                     <tr>
                       <th>Customer ID</th>
@@ -279,10 +230,24 @@
                     </tr>
                   </thead>
                   <tbody id="tbody">
-                    <!-- Your data rows will go here -->
+                     Your data rows will go here 
                   </tbody>
                 </table>
-              </div>
+              </div> -->
+              <div class="card-body">
+                <table id="paymentTable">
+                    <thead>
+                      <tr>
+                        <th>Customer ID</th>
+                        <th>Plan Name</th>
+                        <th>Amount Purchased</th>
+                        <th>Amount Received</th>
+                        <th>Balance</th>
+                        <th>Payment Duration</th>
+                      </tr>
+                    </thead>
+                </table>
+            </div>
             </div>
             <!--Update Customer Modal -->
             <div

@@ -210,7 +210,7 @@
 
             <div class="row">
               <div class="col-xl-3 col-md-6">
-                <a class="text-decoration-none" href="#">
+                <a class="text-decoration-none" href="">
                   <div class="card bg-success text-white mb-4">
                     <div class="card-body">
                       <p class="fw-bold text-center">Total Customers</p>
@@ -225,7 +225,7 @@
                 </a>
               </div>
               <div class="col-xl-3 col-md-6">
-                <a class="text-decoration-none" href="#">
+                <a class="text-decoration-none" href="">
                   <div class="card bg-danger text-white mb-4">
                     <div class="card-body">
                       <p class="fw-bold text-center">
@@ -878,7 +878,8 @@
               .then((data) => {
                 console.log("Delete successful");
                 console.log("Deleted customer:", data);
-                window.location.reload()
+                window.location.reload();
+                alert("Customer Deleted Successfully!");
               })
               .catch((error) => {
                 console.error("Error deleting customer:", error);
@@ -887,6 +888,8 @@
         });
       });
     </script>
+
+  
     
     
   </body>
