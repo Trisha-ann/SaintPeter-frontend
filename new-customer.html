@@ -650,7 +650,8 @@
               const img = document.createElement("img");
               img.classList.add("d-block", "w-100", "opacity-img");
               // img.src = `https://7bde-112-198-99-31.ngrok-free.app/storage/images/${item.plan_image}`;
-              img.src = `{{ asset('storage/' . ${item.plan_image}) }}`;
+              img.src = `/storage/images/${item.plan_image}`;
+
 
 
 
